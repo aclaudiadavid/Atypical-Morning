@@ -24,13 +24,10 @@ config/name="Atypical Morning"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
-<<<<<<< HEAD
-=======
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "wakatime" )
 
->>>>>>> 0f48ff56ee6e50bba5536e9269fafd8ce668b6b7
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
