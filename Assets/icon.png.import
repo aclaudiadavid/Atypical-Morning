@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pill.png-6306ffc5bc6c441734f0511b652e56ee.stex"
+path="res://.import/icon.png-ec880de02d5dab0aa15458af9d6c53ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pill.png"
-dest_files=[ "res://.import/pill.png-6306ffc5bc6c441734f0511b652e56ee.stex" ]
+source_file="res://Assets/icon.png"
+dest_files=[ "res://.import/icon.png-ec880de02d5dab0aa15458af9d6c53ed.stex" ]
 
 [params]
 
