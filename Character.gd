@@ -6,6 +6,10 @@ const SPEED = 200
 const JUMP = 500
 
 var motion = Vector2()
+<<<<<<< HEAD
+=======
+var hp = 10
+>>>>>>> 0f48ff56ee6e50bba5536e9269fafd8ce668b6b7
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -23,3 +27,11 @@ func _physics_process(delta):
 			
 	motion = move_and_slide(motion, UP)
 	pass
+<<<<<<< HEAD
+=======
+
+
+
+func _on_Pill_collect():
+	hp += 5
+>>>>>>> 0f48ff56ee6e50bba5536e9269fafd8ce668b6b7
