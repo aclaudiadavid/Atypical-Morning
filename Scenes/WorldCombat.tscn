@@ -1,12 +1,19 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Character.gd" type="Script" id=2]
-[ext_resource path="res://enemy2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://BlueBar.png" type="Texture" id=4]
-[ext_resource path="res://GreenBar.png" type="Texture" id=5]
-[ext_resource path="res://BarGlass.png" type="Texture" id=6]
-[ext_resource path="res://BarBackground.png" type="Texture" id=7]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/CharacterCombat.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/WorldCombat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/BlueBar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GreenBar.png" type="Texture" id=5]
+[ext_resource path="res://Assets/BarGlass.png" type="Texture" id=6]
+[ext_resource path="res://Assets/BarBackground.png" type="Texture" id=7]
+
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
