@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BarGlass.png-caf809a001809efc689db91d7f96aca3.stex"
+path="res://.import/BarGlass.png-0e8dd6f5c0160d1a50bb8dfac7ced14b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BarGlass.png"
-dest_files=[ "res://.import/BarGlass.png-caf809a001809efc689db91d7f96aca3.stex" ]
+source_file="res://Assets/BarGlass.png"
+dest_files=[ "res://.import/BarGlass.png-0e8dd6f5c0160d1a50bb8dfac7ced14b.stex" ]
 
 [params]
 

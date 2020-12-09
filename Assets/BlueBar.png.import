@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BlueBar.png-d0699d1d931288dee0eabfc6a13e6c59.stex"
+path="res://.import/BlueBar.png-06897c203a86f4fc8c296e8b0d6b4c97.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BlueBar.png"
-dest_files=[ "res://.import/BlueBar.png-d0699d1d931288dee0eabfc6a13e6c59.stex" ]
+source_file="res://Assets/BlueBar.png"
+dest_files=[ "res://.import/BlueBar.png-06897c203a86f4fc8c296e8b0d6b4c97.stex" ]
 
 [params]
 

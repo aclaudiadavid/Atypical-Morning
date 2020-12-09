@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Scripts/enemy2.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 } ]
 _global_script_class_icons={
+"Enemy": "",
 "GitAPI": ""
 }
 
@@ -26,7 +32,7 @@ config/icon="res://Assets/icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "wakatime" )
+enabled=PoolStringArray(  )
 
 [gdnative]
 
