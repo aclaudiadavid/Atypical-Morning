@@ -25,7 +25,13 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 	pass
 
-
+func _process(_delta):
+	if Input.is_action_pressed("ui_right"):
+		$AnimatedSprite.play("walk")
+	elif Input.is_action_pressed("ui_left"):
+		$AnimatedSprite.play("walk")
+	else:
+		$AnimatedSprite.stop()
 
 func _on_Pill_collect():
 	hp += 5
