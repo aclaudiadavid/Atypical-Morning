@@ -32,7 +32,7 @@ config/icon="res://Assets/icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "wakatime" )
 
 [gdnative]
 

@@ -9,29 +9,28 @@ var motion = Vector2()
 var hp = 10
 
 func _physics_process(delta):
+	if Input.is_action_pressed("ui_right"):
+		motion.x = SPEED;
+		$AnimatedSprite.play("walk")
+		$AnimatedSprite.flip_h = false
+	elif Input.is_action_pressed("ui_left"):
+		motion.x = -SPEED
+		$AnimatedSprite.play("walk")
+		$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.play("idle")
+	
+	if not is_on_floor():
+		$AnimatedSprite.play("jump")
+	
 	motion.y += GRAVITY
 	
-	if Input.is_action_pressed(("ui_right")):
-		motion.x = SPEED;
-	elif Input.is_action_pressed(("ui_left")):
-		motion.x = -SPEED
-	else:
-		motion.x = 0
-		
-	if is_on_floor():
-		if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 			motion.y = -JUMP
 			
 	motion = move_and_slide(motion, UP)
-	pass
-
-func _process(_delta):
-	if Input.is_action_pressed("ui_right"):
-		$AnimatedSprite.play("walk")
-	elif Input.is_action_pressed("ui_left"):
-		$AnimatedSprite.play("walk")
-	else:
-		$AnimatedSprite.stop()
+	
+	motion.x = lerp(motion.x, 0, 0.2)
 
 func _on_Pill_collect():
 	hp += 5
