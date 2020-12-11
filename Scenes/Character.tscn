@@ -33,7 +33,7 @@ animations = [ {
 radius = 13.1492
 height = 37.7194
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "damage"
 length = 0.1
 tracks/0/type = "value"
@@ -49,7 +49,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.901961, 0.0784314, 0.0784314, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "damageS"
 length = 0.1
 tracks/0/type = "value"
@@ -65,8 +65,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.121569, 0.298039, 0.827451, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "flash"
+[sub_resource type="Animation" id=5]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -82,8 +81,7 @@ tracks/0/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "rest"
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:visible")
@@ -120,3 +118,52 @@ animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 3 )
+anims/damageS = SubResource( 4 )
+anims/flash = SubResource( 5 )
+anims/rest = SubResource( 6 )
+
+[node name="HPBar" type="TextureProgress" parent="."]
+margin_left = -493.558
+margin_top = -356.359
+margin_right = -237.558
+margin_bottom = -100.359
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource( 9 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="HPBar"]
+
+[node name="ShieldBar" type="TextureProgress" parent="."]
+margin_left = -497.396
+margin_top = -356.599
+margin_right = -241.396
+margin_bottom = -100.599
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource( 9 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="ShieldBar"]
+
+[node name="death" type="Timer" parent="."]
+one_shot = true
+
+[node name="invulnerabilityTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="death" to="." method="_on_death_timeout"]
+[connection signal="timeout" from="invulnerabilityTimer" to="." method="_on_invulnerabilityTimer_timeout"]
