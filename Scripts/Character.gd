@@ -151,3 +151,4 @@ func _on_Pill_collect():
 
 func _on_death_timeout():
 	self.queue_free()
+	get_tree().change_scene("res://Scenes/GameOver.tscn")
