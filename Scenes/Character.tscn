@@ -110,6 +110,7 @@ tracks/1/keys = {
 
 [node name="Character" type="KinematicBody2D"]
 position = Vector2( 32.0724, 44.5449 )
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -129,10 +130,10 @@ anims/flash = SubResource( 5 )
 anims/rest = SubResource( 6 )
 
 [node name="HPBar" type="TextureProgress" parent="."]
-margin_left = -65.9267
-margin_top = -119.38
-margin_right = 190.073
-margin_bottom = 136.62
+margin_left = -53.1835
+margin_top = -102.337
+margin_right = 202.817
+margin_bottom = 153.663
 max_value = 10.0
 value = 10.0
 texture_under = ExtResource( 9 )
@@ -145,10 +146,10 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="HPBar"]
 
 [node name="ShieldBar" type="TextureProgress" parent="."]
-margin_left = -64.4193
-margin_top = -121.402
-margin_right = 191.581
-margin_bottom = 134.598
+margin_left = -51.815
+margin_top = -102.168
+margin_right = 204.185
+margin_bottom = 153.832
 max_value = 5.0
 value = 5.0
 texture_under = ExtResource( 9 )

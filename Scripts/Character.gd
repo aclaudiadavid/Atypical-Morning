@@ -9,7 +9,7 @@ signal killed()
 const UP = Vector2(0,-1)
 const GRAVITY = 10
 const SPEED = 300
-const JUMP = 800
+const JUMP = 500
 export var stomp_impulse := 300.0
 var motion = Vector2()
 var is_dead = false
