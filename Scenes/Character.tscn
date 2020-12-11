@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixil-frame-0.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Assets/pixil-frame-1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/pixil-frame-2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/pixil-frame-3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/BarGlass.png" type="Texture" id=7]
+[ext_resource path="res://Assets/GreenBar.png" type="Texture" id=8]
+[ext_resource path="res://Assets/BarBackground.png" type="Texture" id=9]
+[ext_resource path="res://Assets/BlueBar.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,11 +33,86 @@ animations = [ {
 radius = 13.1492
 height = 37.7194
 
-[node name="Character" type="KinematicBody2D"]
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
+[sub_resource type="Animation" id=5]
+resource_name = "damage"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.048931, 0.0970097, 0.0979573 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.901961, 0.0784314, 0.0784314, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="Animation" id=6]
+resource_name = "damageS"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00919241, 0.0530166, 0.0939669 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.121569, 0.298039, 0.827451, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "flash"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0102138, 0.11133, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "rest"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00817103 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.00817103 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Character" type="KinematicBody2D"]
+position = Vector2( 32.0724, 44.5449 )
+script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -41,3 +120,53 @@ animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+<<<<<<< HEAD
+=======
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 5 )
+anims/damageS = SubResource( 6 )
+anims/flash = SubResource( 3 )
+anims/rest = SubResource( 4 )
+
+[node name="HPBar" type="TextureProgress" parent="."]
+margin_left = -130.071
+margin_top = -224.507
+margin_right = 125.929
+margin_bottom = 31.4935
+max_value = 10.0
+texture_under = ExtResource( 9 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="HPBar"]
+
+[node name="ShieldBar" type="TextureProgress" parent="."]
+margin_left = -130.345
+margin_top = -226.527
+margin_right = 125.655
+margin_bottom = 29.4726
+max_value = 5.0
+texture_under = ExtResource( 9 )
+texture_over = ExtResource( 7 )
+texture_progress = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="ShieldBar"]
+
+[node name="death" type="Timer" parent="."]
+one_shot = true
+
+[node name="invulnerabilityTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="death" to="." method="_on_death_timeout"]
+[connection signal="timeout" from="invulnerabilityTimer" to="." method="_on_invulnerabilityTimer_timeout"]
+>>>>>>> 65623a8e73e5b8afaa12b4c29ef1c7a513ee8ece
