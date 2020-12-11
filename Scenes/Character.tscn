@@ -129,10 +129,10 @@ anims/flash = SubResource( 5 )
 anims/rest = SubResource( 6 )
 
 [node name="HPBar" type="TextureProgress" parent="."]
-margin_left = -493.558
-margin_top = -356.359
-margin_right = -237.558
-margin_bottom = -100.359
+margin_left = -65.9267
+margin_top = -119.38
+margin_right = 190.073
+margin_bottom = 136.62
 max_value = 10.0
 value = 10.0
 texture_under = ExtResource( 9 )
@@ -145,10 +145,10 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="HPBar"]
 
 [node name="ShieldBar" type="TextureProgress" parent="."]
-margin_left = -497.396
-margin_top = -356.599
-margin_right = -241.396
-margin_bottom = -100.599
+margin_left = -64.4193
+margin_top = -121.402
+margin_right = 191.581
+margin_bottom = 134.598
 max_value = 5.0
 value = 5.0
 texture_under = ExtResource( 9 )

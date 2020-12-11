@@ -1,15 +1,24 @@
 extends KinematicBody2D
 
+signal health_updated(health)
+signal shield_updated(shield)
+#signal max_changed(new_amount)
+signal killed()
+
+
 const UP = Vector2(0,-1)
 const GRAVITY = 10
 const SPEED = 300
-const JUMP = 500
+const JUMP = 800
 export var stomp_impulse := 300.0
 var motion = Vector2()
 var is_dead = false
+var medicine_taken = false
+var dmg_time = 0.0
 
 export (int) var max_health = 10
 export (int) var max_shield = 5
+
 
 onready var health = max_health setget set_health
 onready var shield = max_shield setget set_shield
@@ -57,11 +66,29 @@ func _physics_process(delta):
 			elif "enemy2" in get_slide_collision(i).collider.name:
 				damage(1)
 		
+		
+		if not medicine_taken && shield == 0:
+			dmg_time += delta;
+		
+		if dmg_time >= 3.0:
+			dmg_time = 0.0
+			infection(1)
+			
+		
 func dead():
 	is_dead = true
 	motion = Vector2(0, 0)
+	$AnimatedSprite.play("idle")
 	$CollisionShape2D.disabled = true
 	$death.start()
+
+
+func infection(amount):
+		if shield <= 0 && not medicine_taken:
+			set_health(health - amount)
+			HPBarUpdate()
+			effects_animation.play("damage")
+
 
 
 func damage(amount):
@@ -116,7 +143,10 @@ func _on_invulnerabilityTimer_timeout():
 
 
 func _on_Pill_collect():
-	health += 5
+	set_health(health + 5)
+	HPBarUpdate()
+	medicine_taken = true
+	print(medicine_taken)
 
 
 func _on_death_timeout():
