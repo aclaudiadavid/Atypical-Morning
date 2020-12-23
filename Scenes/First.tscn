@@ -407,6 +407,6 @@ scale = Vector2( 3.17538, 3.26308 )
 texture = ExtResource( 7 )
 
 [node name="end level" type="Sprite" parent="."]
-position = Vector2( 2413.06, 398.115 )
-scale = Vector2( 2.52647, 2.56154 )
+position = Vector2( 2429.33, 440.776 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 8 )

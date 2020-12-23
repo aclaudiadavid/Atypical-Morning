@@ -85,7 +85,7 @@ position = Vector2( -9, 20 )
 shape = SubResource( 3 )
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
-position = Vector2( 1416.93, 281.944 )
+position = Vector2( 1485.79, 281.944 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D6"]
 position = Vector2( -8.5, -1 )
@@ -136,12 +136,12 @@ shape = SubResource( 4 )
 position = Vector2( 972.621, 57.7181 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D7"]
-position = Vector2( 297.27, 105.953 )
+position = Vector2( 365.075, 113.37 )
 scale = Vector2( 2.5625, 1.90625 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
-position = Vector2( 296.297, 109.79 )
+position = Vector2( 364.103, 117.207 )
 shape = SubResource( 4 )
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="."]
