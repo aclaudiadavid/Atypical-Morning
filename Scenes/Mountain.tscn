@@ -94,6 +94,11 @@ position = Vector2( 31.1285, 478.727 )
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 current = true
+limit_left = 0
+limit_top = 0
+limit_right = 2049
+limit_bottom = 633
+editor_draw_limits = true
 
 [node name="enemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1365.05, 340.18 )
