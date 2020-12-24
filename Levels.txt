@@ -1,0 +1,23 @@
+Tutorial:
+    Doesn't matter the context
+
+Level 1: Leaving Home
+    Setting: Street
+
+Level 2:
+    Beach:
+        setting: sand and maybe underwater?
+    Open Market:
+        setting: street and tents
+    Mountain:
+        setting: small Mountain
+
+level 3:
+    Hospital:
+        setting: inside the hospital?
+    Playground:
+        setting: street little zombies
+
+level 4:
+    Market:
+        setting: street, boss inside
