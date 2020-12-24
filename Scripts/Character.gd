@@ -30,7 +30,7 @@ onready var shieldbar = $ShieldBar
 func _physics_process(delta):
 	if is_dead == false:
 		if Input.is_action_pressed("ui_right"):
-			motion.x = SPEED;
+			motion.x = SPEED
 			$AnimatedSprite.play("walk")
 			$AnimatedSprite.flip_h = false
 		elif Input.is_action_pressed("ui_left"):
@@ -44,6 +44,9 @@ func _physics_process(delta):
 			$AnimatedSprite.play("jump")
 		
 		motion.y += GRAVITY
+		
+		if position.y > 700:
+			dead()
 		
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():
 				motion.y = -JUMP
