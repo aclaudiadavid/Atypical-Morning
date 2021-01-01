@@ -68,6 +68,16 @@ func _physics_process(delta):
 				(collider as Enemy).dead()
 			elif "enemy2" in get_slide_collision(i).collider.name:
 				damage(1)
+			elif "End1" in get_slide_collision(i).collider.name:
+				get_tree().change_scene("res://Scenes/Mountain.tscn")
+			elif "End1" in get_slide_collision(i).collider.name:
+				get_tree().change_scene("res://Scenes/Mountain.tscn")
+			elif "End1" in get_slide_collision(i).collider.name:
+				get_tree().change_scene("res://Scenes/Mountain.tscn")
+			elif "End1" in get_slide_collision(i).collider.name:
+				get_tree().change_scene("res://Scenes/Mountain.tscn")
+			elif "End1" in get_slide_collision(i).collider.name:
+				get_tree().change_scene("res://Scenes/Mountain.tscn")
 		
 		
 		if not medicine_taken && shield == 0:

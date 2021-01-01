@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/ice.png" type="Texture" id=1]
 [ext_resource path="res://Assets/mountain.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/enemy2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/end level.png" type="Texture" id=5]
 [ext_resource path="res://Assets/mountain2.png" type="Texture" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -103,7 +102,3 @@ editor_draw_limits = true
 [node name="enemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1626.97, 406.851 )
 scale = Vector2( 0.5, 0.5 )
-
-[node name="end level" type="Sprite" parent="."]
-position = Vector2( 2814.41, 543.688 )
-texture = ExtResource( 5 )
