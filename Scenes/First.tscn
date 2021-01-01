@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/box.png" type="Texture" id=6]
 [ext_resource path="res://Assets/house.png" type="Texture" id=7]
 [ext_resource path="res://Assets/end level.png" type="Texture" id=8]
+[ext_resource path="res://Assets/SunnyBackground.jpg" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -379,12 +380,34 @@ extents = Vector2( 26.7559, 10.8858 )
 
 [node name="World" type="Node2D"]
 
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( -1721.04, -238.771 )
+scale = Vector2( 2.23434, 3.32248 )
+z_index = -1
+texture = ExtResource( 9 )
+offset = Vector2( 894.689, 76.0299 )
+
+[node name="bg2" type="Sprite" parent="."]
+position = Vector2( -534.493, -240.434 )
+scale = Vector2( 2.44009, 3.31145 )
+z_index = -1
+texture = ExtResource( 9 )
+offset = Vector2( 894.689, 76.0299 )
+
+[node name="bg3" type="Sprite" parent="."]
+position = Vector2( 1065.35, -238.514 )
+scale = Vector2( 2.16166, 3.30594 )
+z_index = -1
+texture = ExtResource( 9 )
+offset = Vector2( 894.689, 76.0299 )
+
 [node name="Character" parent="." instance=ExtResource( 1 )]
 position = Vector2( 293.547, 247.664 )
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 current = true
 limit_left = -224
+limit_top = -490
 limit_right = 2557
 limit_bottom = 542
 limit_smoothed = true
@@ -409,11 +432,17 @@ position = Vector2( -144.971, 372.859 )
 scale = Vector2( 3.17538, 3.26308 )
 texture = ExtResource( 7 )
 
+<<<<<<< HEAD
 [node name="End1" type="StaticBody2D" parent="."]
 
 [node name="end level" type="Sprite" parent="End1"]
 position = Vector2( 2429.33, 440.776 )
 scale = Vector2( 1.2, 1.2 )
+=======
+[node name="end level" type="Sprite" parent="."]
+position = Vector2( 2428.77, 436.286 )
+scale = Vector2( 1.4, 1.4 )
+>>>>>>> ae028a350a079b818d9f5ed4e4795c98b262c777
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End1"]

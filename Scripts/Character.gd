@@ -156,6 +156,7 @@ func _on_invulnerabilityTimer_timeout():
 
 
 func _on_Pill_collect():
+	dmg_time = 0.0
 	set_health(health + 5)
 	HPBarUpdate()
 	medicine_taken = true

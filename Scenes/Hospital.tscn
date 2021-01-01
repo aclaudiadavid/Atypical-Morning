@@ -157,7 +157,7 @@ position = Vector2( 296.297, 109.79 )
 shape = SubResource( 4 )
 
 [node name="Pill" parent="." instance=ExtResource( 6 )]
-position = Vector2( 791.118, 294.887 )
+position = Vector2( 902.362, 228.141 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
 position = Vector2( 904.987, 287.788 )
@@ -175,4 +175,8 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="enemy4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1209.14, 276.257 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 500.963, 276 )
 scale = Vector2( 0.5, 0.5 )
