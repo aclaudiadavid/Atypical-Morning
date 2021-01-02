@@ -6,8 +6,8 @@
 [ext_resource path="res://Assets/Walk5.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Walk3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Walk4.png" type="Texture" id=6]
-[ext_resource path="res://childenemy2.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Walk6.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/enemy2.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,12 +23,12 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28.2157, 78.5946 )
+extents = Vector2( 28.2157, 79.3207 )
 
 [node name="childenemy2" type="KinematicBody2D"]
 position = Vector2( 1.68179, 10.0908 )
 scale = Vector2( 0.3, 0.3 )
-script = ExtResource( 7 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
