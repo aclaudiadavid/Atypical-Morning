@@ -432,17 +432,11 @@ position = Vector2( -144.971, 372.859 )
 scale = Vector2( 3.17538, 3.26308 )
 texture = ExtResource( 7 )
 
-<<<<<<< HEAD
 [node name="End1" type="StaticBody2D" parent="."]
 
 [node name="end level" type="Sprite" parent="End1"]
 position = Vector2( 2429.33, 440.776 )
 scale = Vector2( 1.2, 1.2 )
-=======
-[node name="end level" type="Sprite" parent="."]
-position = Vector2( 2428.77, 436.286 )
-scale = Vector2( 1.4, 1.4 )
->>>>>>> ae028a350a079b818d9f5ed4e4795c98b262c777
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End1"]
