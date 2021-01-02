@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
-}, {
-"base": "KinematicBody2D",
-"class": "childEnemy",
-"language": "GDScript",
-"path": "res://childenemy2.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
-"GitAPI": "",
-"childEnemy": ""
+"GitAPI": ""
 }
 
 [application]
