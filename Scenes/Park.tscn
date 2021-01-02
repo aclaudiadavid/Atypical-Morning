@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/parkgrass.png" type="Texture" id=1]
 [ext_resource path="res://Assets/grass.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Assets/slide.png" type="Texture" id=10]
 [ext_resource path="res://Assets/monkeybars.png" type="Texture" id=11]
 [ext_resource path="res://Assets/swings.png" type="Texture" id=12]
+[ext_resource path="res://Assets/parkBackground.jpg" type="Texture" id=13]
+[ext_resource path="res://Assets/tree.png" type="Texture" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -64,10 +66,10 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 1/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 3.6185, 1.39561 )
+extents = Vector2( 3.36017, 1.0394 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 20.0482, 5.37231 )
+extents = Vector2( 25.912, 7.59686 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 27.8955, 17.1208 )
@@ -85,6 +87,11 @@ extents = Vector2( 3.10822, 1.67636 )
 extents = Vector2( 2.84338, 1.4115 )
 
 [node name="Node2D" type="Node2D"]
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 1565.82, 483.264 )
+scale = Vector2( 0.603078, 0.4 )
+texture = ExtResource( 13 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
@@ -105,51 +112,39 @@ editor_draw_limits = true
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 248.719, 466.723 )
-scale = Vector2( 7.08687, 10.8795 )
+position = Vector2( 257.114, 498.92 )
+scale = Vector2( 2.40437, 2.2001 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 201.522, 501.184 )
+position = Vector2( 188.332, 502.656 )
 scale = Vector2( 7.08687, 10.8795 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 329.01, 524.195 )
+position = Vector2( 329.656, 544.101 )
 shape = SubResource( 5 )
 
-[node name="StaticBody2D10" type="StaticBody2D" parent="."]
-position = Vector2( 2741.89, -1.05949 )
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D10"]
-position = Vector2( 248.719, 466.723 )
-scale = Vector2( 7.08687, 10.8795 )
-texture = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
-position = Vector2( 201.522, 501.184 )
-scale = Vector2( 7.08687, 10.8795 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D10"]
-position = Vector2( 329.01, 524.195 )
-shape = SubResource( 5 )
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 3083.26, 499.263 )
+scale = Vector2( 2.404, 2.2 )
+texture = ExtResource( 14 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( 403.045, -2.99664 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2"]
-position = Vector2( 248.719, 466.723 )
-scale = Vector2( 7.08687, 10.8795 )
+position = Vector2( 269.017, 502.351 )
+scale = Vector2( 2.404, 2.2 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 201.522, 501.184 )
+position = Vector2( 200.992, 505.422 )
 scale = Vector2( 7.08687, 10.8795 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 329.01, 524.195 )
+position = Vector2( 341.724, 548.563 )
 shape = SubResource( 5 )
 
 [node name="Pill" parent="." instance=ExtResource( 7 )]

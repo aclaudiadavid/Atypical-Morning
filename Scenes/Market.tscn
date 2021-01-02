@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/road.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/marketStall.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Pill.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/end level.png" type="Texture" id=7]
+[ext_resource path="res://Assets/marketBackground.jpg" type="Texture" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -41,6 +42,11 @@ extents = Vector2( 31.0819, 29.9024 )
 extents = Vector2( 46.8978, 3.83264 )
 
 [node name="Node2D" type="Node2D"]
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 1363.23, 151.191 )
+scale = Vector2( 0.349464, 0.308787 )
+texture = ExtResource( 8 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
