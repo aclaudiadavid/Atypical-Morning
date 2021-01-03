@@ -59,13 +59,16 @@ func _physics_process(delta):
 			var collision := get_slide_collision(i)
 			var collider := collision.collider
 			var is_stomping := (
-				collider is Enemy and
+				(collider is Enemy or collider is ChildEnemy) and
 				is_on_floor() and
 				collision.normal.is_equal_approx(Vector2.UP)
 			)
-			if is_stomping:
+			if is_stomping and collider is Enemy:
 				motion.y = -stomp_impulse
-				(collider as Enemy).dead()
+				(collider as Enemy).dead()				
+			elif is_stomping and collider is ChildEnemy:
+				motion.y = -stomp_impulse
+				(collider as ChildEnemy).dead()
 			elif "enemy2" in get_slide_collision(i).collider.name:
 				damage(1)
 			elif "End" in get_slide_collision(i).collider.name:

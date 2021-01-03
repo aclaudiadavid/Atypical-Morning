@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "ChildEnemy",
+"language": "GDScript",
+"path": "res://Scenes/childenemy2.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://Scripts/enemy2.gd"
@@ -18,16 +23,11 @@ _global_script_classes=[ {
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
-}, {
-"base": "KinematicBody2D",
-"class": "childEnemy",
-"language": "GDScript",
-"path": "res://childenemy2.gd"
 } ]
 _global_script_class_icons={
+"ChildEnemy": "",
 "Enemy": "",
-"GitAPI": "",
-"childEnemy": ""
+"GitAPI": ""
 }
 
 [application]

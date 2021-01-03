@@ -21,6 +21,9 @@ margin_top = -1.0
 margin_right = 1025.0
 margin_bottom = 598.0
 color = Color( 0.682353, 0.905882, 0.937255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = 81.6226
