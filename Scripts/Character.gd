@@ -45,6 +45,7 @@ func _physics_process(delta):
 		
 		motion.y += GRAVITY
 		
+		
 		if position.y > 700:
 			dead()
 		
@@ -63,6 +64,10 @@ func _physics_process(delta):
 				is_on_floor() and
 				collision.normal.is_equal_approx(Vector2.UP)
 			)
+			
+			if collision.collider.has_method("collide_with"):
+				collision.collider.collide_with(collision, collider)
+			
 			if is_stomping and collider is Enemy:
 				motion.y = -stomp_impulse
 				(collider as Enemy).dead()				
