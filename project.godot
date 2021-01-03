@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "EnemyRanged",
 "language": "GDScript",
-"path": "res://Scenes/enemy_ranged.gd"
+"path": "res://Scripts/enemy_ranged.gd"
 }, {
 "base": "",
 "class": "GitAPI",

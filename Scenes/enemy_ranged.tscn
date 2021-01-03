@@ -6,20 +6,20 @@
 [ext_resource path="res://Assets/Walk5.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Walk3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Walk4.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/enemy_ranged.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/enemy_ranged.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Walk6.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "dead",
-"speed": 0.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "dead",
+"speed": 0.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -27,6 +27,7 @@ extents = Vector2( 28.2157, 78.5946 )
 
 [node name="enemy_ranged" type="KinematicBody2D"]
 position = Vector2( 1.68179, 10.0908 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
