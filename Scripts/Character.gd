@@ -86,8 +86,10 @@ func _physics_process(delta):
 				damage(1)
 			elif "End" in get_slide_collision(i).collider.name:
 				paused = true
-				print(Global.time)
 				get_tree().change_scene("res://Scenes/Menu.tscn")
+			elif "endbarrier" in get_slide_collision(i).collider.name:
+				get_node("../finalcam").make_current()
+				get_node("../endbarrier/CollisionShape2D").disabled = true
 		
 		
 		if not medicine_taken && shield == 0:
