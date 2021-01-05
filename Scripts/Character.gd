@@ -15,6 +15,8 @@ var motion = Vector2()
 var is_dead = false
 var medicine_taken = false
 var dmg_time = 0.0
+var time_mult = 1
+var paused = false
 
 export (int) var max_health = 10
 export (int) var max_shield = 5
@@ -27,7 +29,13 @@ onready var effects_animation = $AnimationPlayer
 onready var hpbar = $HPBar
 onready var shieldbar = $ShieldBar
 
+func _ready():
+	set_process(true)
+
 func _physics_process(delta):
+	if not paused:
+		Global.time += delta * time_mult
+	
 	if is_dead == false:
 		if Input.is_action_pressed("ui_right"):
 			motion.x = SPEED
@@ -77,6 +85,8 @@ func _physics_process(delta):
 			elif "enemy2" in get_slide_collision(i).collider.name:
 				damage(1)
 			elif "End" in get_slide_collision(i).collider.name:
+				paused = true
+				print(Global.time)
 				get_tree().change_scene("res://Scenes/Menu.tscn")
 		
 		
@@ -165,4 +175,5 @@ func _on_Pill_collect():
 
 func _on_death_timeout():
 	self.queue_free()
+	Global.time = 0
 	get_tree().change_scene("res://Scenes/GameOver.tscn")
