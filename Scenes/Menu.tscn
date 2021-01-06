@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/levels map.png" type="Texture" id=1]
 [ext_resource path="res://Assets/shinyhospital.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://SuperMarket.gd" type="Script" id=12]
 [ext_resource path="res://Market.gd" type="Script" id=13]
 [ext_resource path="res://Assets/mapBackground.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 355.745, 291.902 )
@@ -34,6 +35,7 @@ extents = Vector2( 115.172, 91.8304 )
 extents = Vector2( 113.547, 118.806 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 15 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 626.66, 423.776 )
@@ -49,70 +51,70 @@ texture = ExtResource( 1 )
 current = true
 zoom = Vector2( 1.5, 1.63 )
 
-[node name="Area2D" type="Area2D" parent="Sprite"]
+[node name="Mountain" type="Area2D" parent="Sprite"]
 script = ExtResource( 8 )
 
-[node name="Sprite4" type="Sprite" parent="Sprite/Area2D"]
+[node name="Sprite4" type="Sprite" parent="Sprite/Mountain"]
 position = Vector2( -452.862, -572.245 )
 texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Mountain"]
 position = Vector2( -445.384, -582.231 )
 shape = SubResource( 1 )
 
-[node name="Area2D2" type="Area2D" parent="Sprite"]
+[node name="Beach" type="Area2D" parent="Sprite"]
 script = ExtResource( 9 )
 
-[node name="Sprite" type="Sprite" parent="Sprite/Area2D2"]
+[node name="Sprite" type="Sprite" parent="Sprite/Beach"]
 position = Vector2( -399.595, 483.229 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Beach"]
 position = Vector2( -404.747, 490.063 )
 shape = SubResource( 2 )
 
-[node name="Area2D3" type="Area2D" parent="Sprite"]
+[node name="Hospital" type="Area2D" parent="Sprite"]
 script = ExtResource( 10 )
 
-[node name="Sprite2" type="Sprite" parent="Sprite/Area2D3"]
+[node name="Sprite2" type="Sprite" parent="Sprite/Hospital"]
 position = Vector2( 282.751, -219.361 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hospital"]
 position = Vector2( 276.333, -220.304 )
 shape = SubResource( 3 )
 
-[node name="Area2D4" type="Area2D" parent="Sprite"]
+[node name="Park" type="Area2D" parent="Sprite"]
 script = ExtResource( 11 )
 
-[node name="Sprite5" type="Sprite" parent="Sprite/Area2D4"]
+[node name="Sprite5" type="Sprite" parent="Sprite/Park"]
 position = Vector2( 278.154, 305.198 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Park"]
 position = Vector2( 274.708, 310.223 )
 shape = SubResource( 4 )
 
-[node name="Area2D5" type="Area2D" parent="Sprite"]
+[node name="SuperMarket" type="Area2D" parent="Sprite"]
 position = Vector2( -4.87646, -13.488 )
 script = ExtResource( 12 )
 
-[node name="Sprite6" type="Sprite" parent="Sprite/Area2D5"]
+[node name="Sprite6" type="Sprite" parent="Sprite/SuperMarket"]
 position = Vector2( 814.051, -24.6617 )
 texture = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SuperMarket"]
 position = Vector2( 807.869, -20.2322 )
 shape = SubResource( 5 )
 
-[node name="Area2D6" type="Area2D" parent="Sprite"]
+[node name="Market" type="Area2D" parent="Sprite"]
 position = Vector2( -4.87646, -13.488 )
 script = ExtResource( 13 )
 
-[node name="Sprite3" type="Sprite" parent="Sprite/Area2D6"]
+[node name="Sprite3" type="Sprite" parent="Sprite/Market"]
 position = Vector2( -319.254, -8.76605 )
 texture = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Market"]
 position = Vector2( -326.724, -0.000305176 )
 shape = SubResource( 6 )

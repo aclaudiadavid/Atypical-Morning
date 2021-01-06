@@ -7,4 +7,5 @@ func _input_event(viewport, event, shape_idx):
 		self.on_click()
 
 func on_click():
+	Global.lastScene = "Market"
 	get_tree().change_scene("res://Scenes/Market.tscn")
