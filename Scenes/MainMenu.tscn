@@ -1,49 +1,82 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/more fonts/KiriFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
+[ext_resource path="res://Assets/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 70
+size = 76
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 27
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 27
+font_data = ExtResource( 3 )
+
 [node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.585
+anchor_bottom = 1.725
+margin_right = -0.0400391
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 1.0
-margin_top = -1.0
-margin_right = 1025.0
-margin_bottom = 598.0
+margin_left = 23.6786
+margin_top = -6.03973
+margin_right = 1656.68
+margin_bottom = 1042.96
 color = Color( 0.682353, 0.905882, 0.937255, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 81.6226
-margin_top = 32.7816
-margin_right = 947.623
-margin_bottom = 186.782
+margin_left = 398.049
+margin_top = 243.285
+margin_right = 1339.05
+margin_bottom = 426.285
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.960784, 0.321569, 0.0235294, 1 )
 custom_colors/font_outline_modulate = Color( 0.0901961, 0.968627, 0.0823529, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "A typical Morning"
+text = "Atypical Morning"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PlayButton" type="Button" parent="."]
-margin_left = 411.0
-margin_top = 251.0
-margin_right = 609.0
-margin_bottom = 321.0
+margin_left = 761.625
+margin_top = 466.361
+margin_right = 962.625
+margin_bottom = 537.361
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 text = "Play"
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 761.625
+margin_top = 596.526
+margin_right = 962.625
+margin_bottom = 667.526
+custom_fonts/font = SubResource( 3 )
+text = "Exit"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 845.451, 493.71 )
+current = true
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]
