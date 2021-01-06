@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Assets/levels map.png" type="Texture" id=1]
-
-[node name="levels map" type="Sprite"]
-position = Vector2( 692.755, 647.262 )
-scale = Vector2( 0.689889, 0.638415 )
-texture = ExtResource( 1 )
