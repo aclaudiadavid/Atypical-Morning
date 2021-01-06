@@ -97,10 +97,10 @@ __meta__ = {
 [node name="Label4" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 1028.99
-margin_top = 408.661
-margin_right = 1156.99
-margin_bottom = 434.661
+margin_left = 1052.99
+margin_top = 409.661
+margin_right = 1180.99
+margin_bottom = 435.661
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
