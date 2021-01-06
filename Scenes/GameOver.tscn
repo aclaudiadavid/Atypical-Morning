@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=1]
 [ext_resource path="res://Assets/more fonts/KiriFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 21
+font_data = ExtResource( 4 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -16,15 +26,18 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1904.0
+margin_bottom = 1142.0
 color = Color( 0.682353, 0.905882, 0.937255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
-margin_left = 81.623
-margin_top = 32.782
-margin_right = 947.623
-margin_bottom = 186.782
+margin_left = 555.088
+margin_top = 293.488
+margin_right = 1421.09
+margin_bottom = 447.488
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.960784, 0.321569, 0.0235294, 1 )
 custom_colors/font_outline_modulate = Color( 0.0901961, 0.968627, 0.0823529, 1 )
@@ -33,13 +46,31 @@ text = "Game Over"
 align = 1
 
 [node name="RetryButton" type="Button" parent="."]
-margin_left = 411.0
-margin_top = 251.0
-margin_right = 609.0
-margin_bottom = 321.0
+margin_left = 884.465
+margin_top = 523.692
+margin_right = 1082.47
+margin_bottom = 593.692
+custom_fonts/font = SubResource( 2 )
 text = "Retry"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 994.876, 473.465 )
+current = true
+
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 884.465
+margin_top = 636.824
+margin_right = 1082.47
+margin_bottom = 706.824
+custom_fonts/font = SubResource( 3 )
+text = "Exit"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="RetryButton" to="RetryButton" method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]

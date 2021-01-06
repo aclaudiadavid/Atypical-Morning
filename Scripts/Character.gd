@@ -54,7 +54,7 @@ func _physics_process(delta):
 		motion.y += GRAVITY
 		
 		
-		if position.y > 700:
+		if position.y > 950:
 			dead()
 		
 		if Input.is_action_just_pressed("ui_up") and is_on_floor():

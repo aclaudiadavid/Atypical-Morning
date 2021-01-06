@@ -106,6 +106,26 @@ position = Vector2( 3168.41, 329.621 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 7 )
 
+[node name="Background5" type="Sprite" parent="."]
+position = Vector2( 461.759, 921.023 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 7 )
+
+[node name="Background6" type="Sprite" parent="."]
+position = Vector2( 1369.23, 923.268 )
+scale = Vector2( -1, -1 )
+texture = ExtResource( 7 )
+
+[node name="Background7" type="Sprite" parent="."]
+position = Vector2( 2269.91, 923.795 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 7 )
+
+[node name="Background8" type="Sprite" parent="."]
+position = Vector2( 3178.94, 925.13 )
+scale = Vector2( -1, -1 )
+texture = ExtResource( 7 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 4 )
 cell_size = Vector2( 32, 32 )
