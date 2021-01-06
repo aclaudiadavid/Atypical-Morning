@@ -2,6 +2,13 @@ extends Node2D
 
 
 func _ready():
+	$Sprite/Mountain.visible = true
+	$Sprite/Beach.visible = true
+	$Sprite/Market.visible = true
+	$Sprite/Hospital.visible = true
+	$Sprite/Park.visible = true
+	$Sprite/SuperMarket.visible = true
+	
 	if Global.lastScene == "First":
 		$Sprite/Hospital.visible = false
 		$Sprite/Park.visible = false
