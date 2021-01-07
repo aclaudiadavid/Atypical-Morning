@@ -20,8 +20,8 @@ func dead():
 	is_dead = true
 	velocity = Vector2(0, 0)
 	$AnimatedSprite.play("dead")
-#	$CollisionShape2D.disabled = true
 	$CollisionShape2D.set_deferred("disabled", true)
+	$Area2D/DamageArea.set_deferred("disabled", true)
 	$Timer.start()
 
 func _physics_process(delta):
@@ -53,3 +53,8 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	self.queue_free()
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Sword"):
+		dead()

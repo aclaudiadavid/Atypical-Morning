@@ -10,6 +10,8 @@ const UP = Vector2(0,-1)
 const GRAVITY = 10.5
 const SPEED = 300
 const JUMP = 500
+const SANITAZER = preload("res://Scenes/Sanitizer.tscn")
+const BOOMERANG = preload("res://Scenes/boomerang.tscn")
 export var stomp_impulse := 300.0
 var motion = Vector2()
 var is_dead = false
@@ -17,6 +19,13 @@ var medicine_taken = false
 var dmg_time = 0.0
 var time_mult = 1
 var paused = false
+var sanitizerON = false
+var boomerangON = false
+var swordON = false
+var isAttacking = false
+var canMove = true
+var boomerang_count = 0
+var max_boom = 1
 
 export (int) var max_health = 10
 export (int) var max_shield = 5
@@ -37,18 +46,24 @@ func _physics_process(delta):
 		Global.time += delta * time_mult
 	
 	if is_dead == false:
-		if Input.is_action_pressed("ui_right"):
+		if Input.is_action_pressed("ui_right") and isAttacking == false:
 			motion.x = SPEED
 			$AnimatedSprite.play("walk")
 			$AnimatedSprite.flip_h = false
-		elif Input.is_action_pressed("ui_left"):
+			if sign($Position2D.position.x) == -1:
+				$Position2D.position.x *= -1
+				$AttackArea/CollisionShape2D.position.x = $AttackArea/CollisionShape2D.position.x * -1
+		elif Input.is_action_pressed("ui_left") and isAttacking == false:
 			motion.x = -SPEED
 			$AnimatedSprite.play("walk")
 			$AnimatedSprite.flip_h = true
+			if sign($Position2D.position.x) == 1:
+				$Position2D.position.x *= -1
+				$AttackArea/CollisionShape2D.position.x = $AttackArea/CollisionShape2D.position.x * -1
 		else:
 			$AnimatedSprite.play("idle")
 		
-		if not is_on_floor():
+		if not is_on_floor() and isAttacking == false:
 			$AnimatedSprite.play("jump")
 		
 		motion.y += GRAVITY
@@ -57,8 +72,33 @@ func _physics_process(delta):
 		if position.y > 950:
 			dead()
 		
-		if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		if Input.is_action_just_pressed("ui_up") and is_on_floor() && isAttacking == false:
 				motion.y = -JUMP
+		
+		if Input.is_action_just_pressed("Attack"):
+			if sanitizerON:	
+				var sanitizer = SANITAZER.instance()
+				if sign($Position2D.position.x) == 1:
+					sanitizer.set_p_direction(1)
+				else:
+					sanitizer.set_p_direction(-1)
+				get_parent().add_child(sanitizer)
+				sanitizer.position = $Position2D.global_position
+			elif boomerangON and boomerang_count < max_boom:
+				var boomerang = BOOMERANG.instance()
+				if sign($Position2D.position.x) == 1:
+					boomerang.set_p_direction(Vector2(1, 0))
+				else:
+					boomerang.set_p_direction(Vector2(-1, 0))
+				boomerang.global_position = global_position
+				boomerang.thrower = self
+				get_parent().add_child(boomerang)
+				boomerang_count += 1
+			
+			elif swordON:
+				$AnimatedSprite.play("Slash")
+				isAttacking = true
+				$AttackArea/CollisionShape2D.disabled = false
 				
 		motion = move_and_slide(motion, UP)
 		
@@ -182,3 +222,22 @@ func _on_death_timeout():
 	self.queue_free()
 	Global.time = 0
 	get_tree().change_scene("res://Scenes/GameOver.tscn")
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation == "Slash":
+		$AttackArea/CollisionShape2D.disabled = true
+		isAttacking = false
+
+func double_boom():
+	max_boom += 1
+
+
+func pick_san():
+	sanitizerON = true
+
+func pick_boom():
+	boomerangON = true
+	
+func pick_sword():
+	swordON = true
