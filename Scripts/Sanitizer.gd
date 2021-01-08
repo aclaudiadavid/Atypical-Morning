@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 550
+var speed = 550
 var velocity = Vector2()
 var direction = 1
 
@@ -14,7 +14,7 @@ func set_p_direction(dir):
 		$CollisionShape2D.position.x *= -1
 
 func _physics_process(delta):
-	velocity.x = SPEED * delta * direction
+	velocity.x = speed * delta * direction
 	translate(velocity)
 	$AnimatedSprite.play("shoot")
 

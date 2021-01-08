@@ -19,13 +19,25 @@ var medicine_taken = false
 var dmg_time = 0.0
 var time_mult = 1
 var paused = false
+
+#sanitizer
 var sanitizerON = false
-var boomerangON = false
+var san_vel = 1
+var san_damage = 1
+var san_count = 1
+
+#sword
 var swordON = false
 var isAttacking = false
-var canMove = true
+var sword_range = 1
+var sword_damage = 1
+
+#boomerang
 var boomerang_count = 0
 var max_boom = 1
+var boomerangON = false
+var boom_distance = 1
+var boom_vel = 1
 
 export (int) var max_health = 10
 export (int) var max_shield = 5
@@ -61,7 +73,8 @@ func _physics_process(delta):
 				$Position2D.position.x *= -1
 				$AttackArea/CollisionShape2D.position.x = $AttackArea/CollisionShape2D.position.x * -1
 		else:
-			$AnimatedSprite.play("idle")
+			if isAttacking == false:
+				$AnimatedSprite.play("idle")
 		
 		if not is_on_floor() and isAttacking == false:
 			$AnimatedSprite.play("jump")
@@ -232,7 +245,6 @@ func _on_AnimatedSprite_animation_finished():
 func double_boom():
 	max_boom += 1
 
-
 func pick_san():
 	sanitizerON = true
 
@@ -241,3 +253,6 @@ func pick_boom():
 	
 func pick_sword():
 	swordON = true
+
+func boostSanVel():
+	san_vel += 0.2
