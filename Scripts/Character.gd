@@ -21,13 +21,11 @@ var time_mult = 1
 var paused = false
 
 #sanitizer
-var sanitizerON = false
 var san_vel = 1
 var san_damage = 1
 var san_count = 1
 
 #sword
-var swordON = false
 var isAttacking = false
 var sword_range = 1
 var sword_damage = 1
@@ -35,22 +33,23 @@ var sword_damage = 1
 #boomerang
 var boomerang_count = 0
 var max_boom = 1
-var boomerangON = false
 var boom_distance = 1
 var boom_vel = 1
 
-export (int) var max_health = 10
-export (int) var max_shield = 5
+#xport (int) var max_health = 10
+#xport (int) var max_shield = 5
 
 
-onready var health = max_health setget set_health
-onready var shield = max_shield setget set_shield
+#onready var health = max_health setget set_health
+#onready var shield = Global.max_shield setget set_shield
 onready var invulnerability_timer = $invulnerabilityTimer
 onready var effects_animation = $AnimationPlayer
 onready var hpbar = $HPBar
 onready var shieldbar = $ShieldBar
 
 func _ready():
+	ShieldBarUpdate()
+	HPBarUpdate()
 	set_process(true)
 
 func _physics_process(delta):
@@ -89,7 +88,7 @@ func _physics_process(delta):
 				motion.y = -JUMP
 		
 		if Input.is_action_just_pressed("Attack"):
-			if sanitizerON:	
+			if Global.sanitizerON:	
 				var sanitizer = SANITAZER.instance()
 				if sign($Position2D.position.x) == 1:
 					sanitizer.set_p_direction(1)
@@ -97,7 +96,7 @@ func _physics_process(delta):
 					sanitizer.set_p_direction(-1)
 				get_parent().add_child(sanitizer)
 				sanitizer.position = $Position2D.global_position
-			elif boomerangON and boomerang_count < max_boom:
+			elif Global.boomerangON and boomerang_count < max_boom:
 				var boomerang = BOOMERANG.instance()
 				if sign($Position2D.position.x) == 1:
 					boomerang.set_p_direction(Vector2(1, 0))
@@ -107,8 +106,7 @@ func _physics_process(delta):
 				boomerang.thrower = self
 				get_parent().add_child(boomerang)
 				boomerang_count += 1
-			
-			elif swordON:
+			elif Global.swordON:
 				$AnimatedSprite.play("Slash")
 				isAttacking = true
 				$AttackArea/CollisionShape2D.disabled = false
@@ -148,7 +146,7 @@ func _physics_process(delta):
 				get_node("../endbarrier/CollisionShape2D").disabled = true
 		
 		
-		if not medicine_taken && shield == 0:
+		if not medicine_taken && Global.shield == 0:
 			dmg_time += delta;
 		
 		if dmg_time >= 3.0:
@@ -165,8 +163,8 @@ func dead():
 
 
 func infection(amount):
-		if shield <= 0 && not medicine_taken:
-			set_health(health - amount)
+		if Global.shield <= 0 && not medicine_taken:
+			set_health(Global.health - amount)
 			HPBarUpdate()
 			effects_animation.play("damage")
 
@@ -175,48 +173,48 @@ func infection(amount):
 func damage(amount):
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
-		if shield > 0:
-			set_shield(shield - amount)
+		if Global.shield > 0:
+			set_shield(Global.shield - amount)
 			ShieldBarUpdate()
 			effects_animation.play("damageS")
 		else:
-			set_health(health - amount)
+			set_health(Global.health - amount)
 			HPBarUpdate()
 			effects_animation.play("damage")
 
 		effects_animation.play("flash")
 
 func HPBarUpdate():
-	hpbar.get_node("Tween").interpolate_property(hpbar, "value", hpbar.value, health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	hpbar.get_node("Tween").interpolate_property(hpbar, "value", hpbar.value, Global.health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	hpbar.get_node("Tween").start()
-	hpbar.value = health
-	if health == 0:
+	hpbar.value = Global.health
+	if Global.health == 0:
 		hpbar.hide()
 
 func ShieldBarUpdate():
-	if shield > 0:
+	if Global.shield > 0:
 		hpbar.hide()
-	shieldbar.get_node("Tween").interpolate_property(shieldbar, "value", shieldbar.value, shield, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	shieldbar.get_node("Tween").interpolate_property(shieldbar, "value", shieldbar.value, Global.shield, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	shieldbar.get_node("Tween").start()
-	shieldbar.value = shield
-	if shield == 0:
+	shieldbar.value = Global.shield
+	if Global.shield == 0:
 		shieldbar.hide()
 		hpbar.show()
 
 func set_health(value):
-	var prev_health = health
-	health = clamp(value, 0, max_health)
-	if health != prev_health:
-		emit_signal("health_updated", health)
-		if health == 0:
+	var prev_health = Global.health
+	Global.health = clamp(value, 0, Global.max_health)
+	if Global.health != prev_health:
+		emit_signal("health_updated", Global.health)
+		if Global.health == 0:
 			dead()
 			emit_signal("killed")
 
 func set_shield(value):
-	var prev_shield = shield
-	shield = clamp(value, 0, max_shield)
-	if shield != prev_shield:
-		emit_signal("shield_updated", shield)
+	var prev_shield = Global.shield
+	Global.shield = clamp(value, 0, Global.max_shield)
+	if Global.shield != prev_shield:
+		emit_signal("shield_updated", Global.shield)
 
 
 func _on_invulnerabilityTimer_timeout():
@@ -225,7 +223,7 @@ func _on_invulnerabilityTimer_timeout():
 
 func _on_Pill_collect():
 	dmg_time = 0.0
-	set_health(health + 5)
+	set_health(Global.health + 5)
 	HPBarUpdate()
 	medicine_taken = true
 	print(medicine_taken)
@@ -246,13 +244,13 @@ func double_boom():
 	max_boom += 1
 
 func pick_san():
-	sanitizerON = true
+	Global.sanitizerON = true
 
 func pick_boom():
-	boomerangON = true
+	Global.boomerangON = true
 	
 func pick_sword():
-	swordON = true
+	Global.swordON = true
 
 func boostSanVel():
 	san_vel += 0.2

@@ -9,12 +9,16 @@
 [ext_resource path="res://Assets/shinysupermarket.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/MountainMenu.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/BeachScript.gd" type="Script" id=9]
-[ext_resource path="res://Hospital.gd" type="Script" id=10]
-[ext_resource path="res://Park.gd" type="Script" id=11]
-[ext_resource path="res://SuperMarket.gd" type="Script" id=12]
-[ext_resource path="res://Market.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Hospital.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Park.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/SuperMarket.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Market.gd" type="Script" id=13]
 [ext_resource path="res://Assets/mapBackground.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=15]
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 355.745, 291.902 )
