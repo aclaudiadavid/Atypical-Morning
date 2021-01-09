@@ -16,6 +16,12 @@ func _ready():
 			label.set("custom_colors/font_color", Color("2eff27"))
 		"Damage":
 			label.set("custom_colors/font_color", Color("ff3131"))
+		"Sickness":
+			label.set("custom_colors/font_color", Color("656616"))
+		"Shield":
+			label.set("custom_colors/font_color", Color("0d7dca"))
+		"Item":
+			label.set("custom_colors/font_color", Color("f3ec09"))
 	randomize()
 	var side_mov = randi() % 121 - 20
 	vel = Vector2(side_mov, 50)

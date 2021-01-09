@@ -12,6 +12,7 @@ const SPEED = 300
 const JUMP = 500
 const SANITAZER = preload("res://Scenes/Sanitizer.tscn")
 const BOOMERANG = preload("res://Scenes/boomerang.tscn")
+var floating_text = preload("res://Scenes/FloatingText.tscn")
 export var stomp_impulse := 300.0
 var motion = Vector2()
 var is_dead = false
@@ -157,7 +158,7 @@ func _physics_process(delta):
 				get_node("../endbarrier/CollisionShape2D").disabled = true
 		
 		
-		if not medicine_taken && PlayerVars.shield == 0:
+		if not medicine_taken && shield == 0:
 			dmg_time += delta;
 		
 		if dmg_time >= 3.0:
@@ -174,8 +175,12 @@ func dead():
 
 
 func infection(amount):
-		if PlayerVars.shield <= 0 && not medicine_taken:
-			set_health(PlayerVars.health - amount)
+		if shield <= 0 && not medicine_taken:
+			set_health(health - amount)
+			var text = floating_text.instance()
+			text.amount = amount
+			text.type = "Sickness"
+			add_child(text)
 			HPBarUpdate()
 			effects_animation.play("damage")
 
@@ -186,10 +191,18 @@ func damage(amount):
 		invulnerability_timer.start()
 		if shield > 0:
 			set_shield(shield - amount)
+			var text = floating_text.instance()
+			text.amount = amount
+			text.type = "Shield"
+			add_child(text)
 			ShieldBarUpdate()
 			effects_animation.play("damageS")
 		else:
 			set_health(health - amount)
+			var text = floating_text.instance()
+			text.amount = amount
+			text.type = "Damage"
+			add_child(text)
 			HPBarUpdate()
 			effects_animation.play("damage")
 
