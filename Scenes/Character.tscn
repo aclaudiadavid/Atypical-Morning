@@ -22,16 +22,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Slash",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "jump",
@@ -41,6 +31,16 @@ animations = [ {
 "loop": true,
 "name": "jumpSlash",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Slash",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]

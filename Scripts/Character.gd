@@ -43,8 +43,8 @@ export (int) var max_health = 10
 export (int) var max_shield = 5
 
 
-#onready var health = max_health setget set_health
-#onready var shield = max_shield setget set_shield
+onready var health = max_health setget set_health
+onready var shield = max_shield setget set_shield
 onready var invulnerability_timer = $invulnerabilityTimer
 onready var effects_animation = $AnimationPlayer
 onready var hpbar = $HPBar
@@ -52,8 +52,7 @@ onready var shieldbar = $ShieldBar
 
 func _ready():
 	set_process(true)
-	PlayerVars.health = max_health
-	PlayerVars.shield = max_shield
+
 
 func _physics_process(delta):
 	if not paused:
@@ -185,48 +184,48 @@ func infection(amount):
 func damage(amount):
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
-		if PlayerVars.shield > 0:
-			set_shield(PlayerVars.shield - amount)
+		if shield > 0:
+			set_shield(shield - amount)
 			ShieldBarUpdate()
 			effects_animation.play("damageS")
 		else:
-			set_health(PlayerVars.health - amount)
+			set_health(health - amount)
 			HPBarUpdate()
 			effects_animation.play("damage")
 
 		effects_animation.play("flash")
 
 func HPBarUpdate():
-	hpbar.get_node("Tween").interpolate_property(hpbar, "value", hpbar.value, PlayerVars.health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	hpbar.get_node("Tween").interpolate_property(hpbar, "value", hpbar.value, health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	hpbar.get_node("Tween").start()
-	hpbar.value = PlayerVars.health
-	if PlayerVars.health == 0:
+	hpbar.value = health
+	if health == 0:
 		hpbar.hide()
 
 func ShieldBarUpdate():
-	if PlayerVars.shield > 0:
+	if shield > 0:
 		hpbar.hide()
-	shieldbar.get_node("Tween").interpolate_property(shieldbar, "value", shieldbar.value, PlayerVars.shield, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	shieldbar.get_node("Tween").interpolate_property(shieldbar, "value", shieldbar.value, shield, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	shieldbar.get_node("Tween").start()
-	shieldbar.value = PlayerVars.shield
-	if PlayerVars.shield == 0:
+	shieldbar.value = shield
+	if shield == 0:
 		shieldbar.hide()
 		hpbar.show()
 
 func set_health(value):
-	var prev_health = PlayerVars.health
-	PlayerVars.health = clamp(value, 0, max_health)
-	if PlayerVars.health != prev_health:
-		emit_signal("health_updated", PlayerVars.health)
-		if PlayerVars.health == 0:
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+		if health == 0:
 			dead()
 			emit_signal("killed")
 
 func set_shield(value):
-	var prev_shield = PlayerVars.shield
-	PlayerVars.shield = clamp(value, 0, max_shield)
-	if PlayerVars.shield != prev_shield:
-		emit_signal("shield_updated", PlayerVars.shield)
+	var prev_shield = shield
+	shield = clamp(value, 0, max_shield)
+	if shield != prev_shield:
+		emit_signal("shield_updated", shield)
 
 
 func _on_invulnerabilityTimer_timeout():
@@ -235,7 +234,7 @@ func _on_invulnerabilityTimer_timeout():
 
 func _on_Pill_collect():
 	dmg_time = 0.0
-	set_health(PlayerVars.health + 5)
+	set_health(health + 5)
 	HPBarUpdate()
 	medicine_taken = true
 	print(medicine_taken)
