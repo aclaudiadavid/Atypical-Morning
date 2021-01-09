@@ -23,11 +23,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-<<<<<<< HEAD
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Slash",
-=======
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "jump",
@@ -36,7 +31,6 @@ animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "jumpSlash",
->>>>>>> 9c960b04f6ff57b7fc539075024eafc9fac397ba
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -44,20 +38,9 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-<<<<<<< HEAD
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "jumpSlash",
-=======
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Slash",
->>>>>>> 9c960b04f6ff57b7fc539075024eafc9fac397ba
 "speed": 10.0
 } ]
 
