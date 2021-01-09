@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hospital.ogg-a465b2027c5c51b1aeb30b218ec7cc29.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Hospital.ogg"
+dest_files=[ "res://.import/Hospital.ogg-a465b2027c5c51b1aeb30b218ec7cc29.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

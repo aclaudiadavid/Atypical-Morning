@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/supermarket.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/box.png" type="Texture" id=11]
 [ext_resource path="res://Assets/end level.png" type="Texture" id=12]
 [ext_resource path="res://Assets/abstract-blur-supermarket.jpg" type="Texture" id=13]
+[ext_resource path="res://Assets/Audio/Coconut Mall - Mario Kart Wii [OST].ogg" type="AudioStream" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -287,3 +288,8 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FEnd"]
 position = Vector2( 1.7838, 0.594604 )
 shape = SubResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -6.5
+autoplay = true

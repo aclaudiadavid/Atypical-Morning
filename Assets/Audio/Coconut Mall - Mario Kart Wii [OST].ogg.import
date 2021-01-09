@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Coconut Mall - Mario Kart Wii [OST].ogg-ec72c2fa18c2224bc71ac73c626b9fe3.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Coconut Mall - Mario Kart Wii [OST].ogg"
+dest_files=[ "res://.import/Coconut Mall - Mario Kart Wii [OST].ogg-ec72c2fa18c2224bc71ac73c626b9fe3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

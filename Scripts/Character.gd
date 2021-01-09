@@ -50,7 +50,11 @@ onready var effects_animation = $AnimationPlayer
 onready var hpbar = $HPBar
 onready var shieldbar = $ShieldBar
 
+onready var walk = $PlayerWalkSound
+
 func _ready():
+	ShieldBarUpdate()
+	HPBarUpdate()
 	set_process(true)
 
 
@@ -80,6 +84,11 @@ func _physics_process(delta):
 		if not is_on_floor() and isAttacking == false:
 			$AnimatedSprite.play("jump")
 
+		if motion.x != 0 and is_on_floor():
+			if !walk.playing:
+				walk.play()
+		elif walk.playing:
+			walk.stop()
 		
 		motion.y += GRAVITY
 		
