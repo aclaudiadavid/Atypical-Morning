@@ -45,6 +45,7 @@ config/icon="res://Assets/icon.png"
 [autoload]
 
 Global="*res://Scripts/global.gd"
+PlayerVars="*res://Scripts/PlayerVars.gd"
 
 [gdnative]
 
