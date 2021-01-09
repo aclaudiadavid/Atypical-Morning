@@ -3,6 +3,7 @@ extends Area2D
 var speed = 550
 var velocity = Vector2()
 var direction = 1
+var damage = 1
 
 func _ready():
 	pass # Replace with function body.
@@ -27,6 +28,6 @@ func _on_Sanitizer_body_entered(body):
 	if body.name != "Character":
 		queue_free()
 	if "enemy" in body.name:
-		body.dead()
+		body.damage(damage)
 		queue_free()
 

@@ -5,6 +5,7 @@ var max_dist = 400
 var dir = Vector2(1, 0)
 var vel = 500
 var thrower
+var damage = 1
 
 enum {FORWARD, BACKWARDS}
 var status = FORWARD
@@ -41,7 +42,7 @@ func _process(delta):
 
 func _on_DamageArea_body_entered(body):
 	if "enemy" in body.name:
-		body.dead()
+		body.damage(damage)
 	if status == FORWARD:
 		if body.name != "Character" and not("enemy" in body.name):
 			status = BACKWARDS

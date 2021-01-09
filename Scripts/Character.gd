@@ -21,30 +21,30 @@ var time_mult = 1
 var paused = false
 
 #sanitizer
-var sanitizerON = false
-var san_vel = 1
-var san_damage = 1
-var san_count = 1
+#var sanitizerON = false
+#var san_vel = 1
+#var san_damage = 1
+#var san_count = 1
 
 #sword
-var swordON = false
+#var swordON = false
 var isAttacking = false
-var sword_range = 1
-var sword_damage = 1
+#var sword_range = 1
+#var sword_damage = 1
 
 #boomerang
 var boomerang_count = 0
-var max_boom = 1
-var boomerangON = false
-var boom_distance = 1
-var boom_vel = 1
+#var max_boom = 1
+#var boomerangON = false
+#var boom_distance = 1
+#var boom_vel = 1
 
 export (int) var max_health = 10
 export (int) var max_shield = 5
 
 
-onready var health = max_health setget set_health
-onready var shield = max_shield setget set_shield
+#onready var health = max_health setget set_health
+#onready var shield = max_shield setget set_shield
 onready var invulnerability_timer = $invulnerabilityTimer
 onready var effects_animation = $AnimationPlayer
 onready var hpbar = $HPBar
@@ -52,6 +52,8 @@ onready var shieldbar = $ShieldBar
 
 func _ready():
 	set_process(true)
+	PlayerVars.health = max_health
+	PlayerVars.shield = max_shield
 
 func _physics_process(delta):
 	if not paused:
@@ -90,16 +92,20 @@ func _physics_process(delta):
 				motion.y = -JUMP
 		
 		if Input.is_action_just_pressed("Attack"):
-			if sanitizerON:	
+			if PlayerVars.sanitizerON:	
 				var sanitizer = SANITAZER.instance()
+				sanitizer.damage = PlayerVars.san_damage
+				sanitizer.speed = sanitizer.speed * PlayerVars.san_vel
 				if sign($Position2D.position.x) == 1:
 					sanitizer.set_p_direction(1)
 				else:
 					sanitizer.set_p_direction(-1)
 				get_parent().add_child(sanitizer)
 				sanitizer.position = $Position2D.global_position
-			elif boomerangON and boomerang_count < max_boom:
+			elif PlayerVars.boomerangON and boomerang_count < PlayerVars.max_boom:
 				var boomerang = BOOMERANG.instance()
+				boomerang.max_dist *= PlayerVars.boom_distance
+				boomerang.vel *= PlayerVars.boom_vel
 				if sign($Position2D.position.x) == 1:
 					boomerang.set_p_direction(Vector2(1, 0))
 				else:
@@ -109,7 +115,7 @@ func _physics_process(delta):
 				get_parent().add_child(boomerang)
 				boomerang_count += 1
 			
-			elif swordON:
+			elif PlayerVars.swordON:
 				if not is_on_floor():
 					$AnimatedSprite.play("jumpSlash")
 				else:
@@ -152,7 +158,7 @@ func _physics_process(delta):
 				get_node("../endbarrier/CollisionShape2D").disabled = true
 		
 		
-		if not medicine_taken && shield == 0:
+		if not medicine_taken && PlayerVars.shield == 0:
 			dmg_time += delta;
 		
 		if dmg_time >= 3.0:
@@ -169,8 +175,8 @@ func dead():
 
 
 func infection(amount):
-		if shield <= 0 && not medicine_taken:
-			set_health(health - amount)
+		if PlayerVars.shield <= 0 && not medicine_taken:
+			set_health(PlayerVars.health - amount)
 			HPBarUpdate()
 			effects_animation.play("damage")
 
@@ -179,48 +185,48 @@ func infection(amount):
 func damage(amount):
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
-		if shield > 0:
-			set_shield(shield - amount)
+		if PlayerVars.shield > 0:
+			set_shield(PlayerVars.shield - amount)
 			ShieldBarUpdate()
 			effects_animation.play("damageS")
 		else:
-			set_health(health - amount)
+			set_health(PlayerVars.health - amount)
 			HPBarUpdate()
 			effects_animation.play("damage")
 
 		effects_animation.play("flash")
 
 func HPBarUpdate():
-	hpbar.get_node("Tween").interpolate_property(hpbar, "value", hpbar.value, health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	hpbar.get_node("Tween").interpolate_property(hpbar, "value", hpbar.value, PlayerVars.health, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	hpbar.get_node("Tween").start()
-	hpbar.value = health
-	if health == 0:
+	hpbar.value = PlayerVars.health
+	if PlayerVars.health == 0:
 		hpbar.hide()
 
 func ShieldBarUpdate():
-	if shield > 0:
+	if PlayerVars.shield > 0:
 		hpbar.hide()
-	shieldbar.get_node("Tween").interpolate_property(shieldbar, "value", shieldbar.value, shield, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	shieldbar.get_node("Tween").interpolate_property(shieldbar, "value", shieldbar.value, PlayerVars.shield, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	shieldbar.get_node("Tween").start()
-	shieldbar.value = shield
-	if shield == 0:
+	shieldbar.value = PlayerVars.shield
+	if PlayerVars.shield == 0:
 		shieldbar.hide()
 		hpbar.show()
 
 func set_health(value):
-	var prev_health = health
-	health = clamp(value, 0, max_health)
-	if health != prev_health:
-		emit_signal("health_updated", health)
-		if health == 0:
+	var prev_health = PlayerVars.health
+	PlayerVars.health = clamp(value, 0, max_health)
+	if PlayerVars.health != prev_health:
+		emit_signal("health_updated", PlayerVars.health)
+		if PlayerVars.health == 0:
 			dead()
 			emit_signal("killed")
 
 func set_shield(value):
-	var prev_shield = shield
-	shield = clamp(value, 0, max_shield)
-	if shield != prev_shield:
-		emit_signal("shield_updated", shield)
+	var prev_shield = PlayerVars.shield
+	PlayerVars.shield = clamp(value, 0, max_shield)
+	if PlayerVars.shield != prev_shield:
+		emit_signal("shield_updated", PlayerVars.shield)
 
 
 func _on_invulnerabilityTimer_timeout():
@@ -229,7 +235,7 @@ func _on_invulnerabilityTimer_timeout():
 
 func _on_Pill_collect():
 	dmg_time = 0.0
-	set_health(health + 5)
+	set_health(PlayerVars.health + 5)
 	HPBarUpdate()
 	medicine_taken = true
 	print(medicine_taken)
@@ -247,16 +253,31 @@ func _on_AnimatedSprite_animation_finished():
 		isAttacking = false
 
 func double_boom():
-	max_boom += 1
+	PlayerVars.max_boom += 1
 
 func pick_san():
-	sanitizerON = true
+	PlayerVars.sanitizerON = true
 
 func pick_boom():
-	boomerangON = true
+	PlayerVars.boomerangON = true
 	
 func pick_sword():
-	swordON = true
+	PlayerVars.swordON = true
 
 func boostSanVel():
-	san_vel += 0.2
+	PlayerVars.san_vel += 0.2
+
+func boostSanDamage():
+	PlayerVars.san_damage += 1
+
+func boostBoomVel():
+	PlayerVars.boom_vel += 0.2
+
+func boostBoomDist():
+	PlayerVars.boom_distance += 0.2
+
+func boostSwordDist():
+	PlayerVars.sword_range += 0.2
+
+func boostSwordDamage():
+	PlayerVars.sword_range += 2
