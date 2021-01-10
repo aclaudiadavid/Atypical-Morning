@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/BPowerUP.gd" type="Script" id=1]
-[ext_resource path="res://Assets/boomerang.png" type="Texture" id=2]
+[ext_resource path="res://Assets/powerUp.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,9 +12,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14, 17 )
+extents = Vector2( 454, 457.225 )
 
 [node name="BPowerUP" type="Node2D"]
+scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
