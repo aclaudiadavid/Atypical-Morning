@@ -18,7 +18,7 @@ var boomerangON = false
 #Saving functions
 var savegame = File.new() #file
 var save_path = "user://savegame.save" #place of the file
-var save_data = {"1": 9999, "2": 9999, "3": 9999, "4": 9999, "5": 9999} #variable to store data
+var save_data = {1: 9999, 2: 9999, 3: 9999, 4: 9999, 5: 9999} #variable to store data
 
 func create_save():
 	savegame.open(save_path, File.WRITE)
@@ -30,21 +30,20 @@ func check_if_better(time):
 	
 	for x in save_data:
 		if time < save_data[x]:
-			new = true
+			if x == 1:
+				new = true
 			
 			for y in range(x, save_data.size()-2):
 				save_data[y+1] = save_data[y]
 			save_data[x] = time
+			
+			save()
 			break
 	return new
 
 func _ready():
 	if not savegame.file_exists(save_path):
 		create_save()
-		
-	if (check_if_better(time)):
-		save()
-		get_tree().getNode("HighScore").Visible()
 
 func save():
 	savegame.open(save_path, File.WRITE) #open file to write
