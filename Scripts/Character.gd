@@ -269,32 +269,60 @@ func _on_AnimatedSprite_animation_finished():
 		$AttackArea/CollisionShape2D.disabled = true
 		isAttacking = false
 
-func double_boom():
+func double_boom(): #feito
+	var text = floating_text.instance()
+	text.desc = "+1 BOOMERANG"
+	text.type = "Item"
+	add_child(text)
 	PlayerVars.max_boom += 1
 
-func pick_san():
+func pick_san(): #feito
 	PlayerVars.sanitizerON = true
 
-func pick_boom():
+func pick_boom(): #feito
 	PlayerVars.boomerangON = true
 	
-func pick_sword():
+func pick_sword(): #feito
 	PlayerVars.swordON = true
 
-func boostSanVel():
+func boostSanVel(): #feito
+	var text = floating_text.instance()
+	text.desc = "+GEL SPEED"
+	text.type = "Item"
+	add_child(text)
 	PlayerVars.san_vel += 0.2
 
-func boostSanDamage():
+func boostSanDamage(): #feito
+	var text = floating_text.instance()
+	text.desc = "+GEL DMG"
+	text.type = "Item"
+	add_child(text)
 	PlayerVars.san_damage += 1
 
-func boostBoomVel():
+func boostBoomVel(): #feito
+	var text = floating_text.instance()
+	text.desc = "+BOOM SPEED"
+	text.type = "Item"
+	add_child(text)
 	PlayerVars.boom_vel += 0.2
 
-func boostBoomDist():
+func boostBoomDist(): #feito
+	var text = floating_text.instance()
+	text.desc = "+BOOM REACH"
+	text.type = "Item"
+	add_child(text)
 	PlayerVars.boom_distance += 0.2
 
-func boostSwordDist():
+func boostSwordDist(): #feito
+	var text = floating_text.instance()
+	text.desc = "+SWORD RANGE"
+	text.type = "Item"
+	add_child(text)
 	PlayerVars.sword_range += 0.2
 
-func boostSwordDamage():
-	PlayerVars.sword_range += 2
+func boostSwordDamage(): #feito
+	var text = floating_text.instance()
+	text.desc = "+SWORD DMG"
+	text.type = "Item"
+	add_child(text)
+	PlayerVars.sword_damage += 2
