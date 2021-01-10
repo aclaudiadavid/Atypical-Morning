@@ -256,7 +256,6 @@ func _on_Pill_collect():
 	set_health(Global.health + 5)
 	HPBarUpdate()
 	medicine_taken = true
-	print(medicine_taken)
 
 
 func _on_death_timeout():
