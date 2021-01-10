@@ -79,11 +79,6 @@ func _physics_process(delta):
 		if not is_on_floor() and isAttacking == false:
 			$AnimatedSprite.play("jump")
 
-		if motion.x != 0 and is_on_floor():
-			if !walk.playing:
-				walk.play()
-		elif walk.playing:
-			walk.stop()
 		
 		motion.y += GRAVITY
 		
@@ -278,12 +273,21 @@ func double_boom(): #feito
 
 func pick_san(): #feito
 	PlayerVars.sanitizerON = true
+	PlayerVars.san_vel = 1
+	PlayerVars.san_damage = 1
+	PlayerVars.san_count = 1
 
 func pick_boom(): #feito
 	PlayerVars.boomerangON = true
-	
+	PlayerVars.max_boom = 1
+	PlayerVars.boomerangON = false
+	PlayerVars.boom_distance = 1
+	PlayerVars.boom_vel = 1
+
 func pick_sword(): #feito
 	PlayerVars.swordON = true
+	PlayerVars.sword_range = 1
+	PlayerVars.sword_damage = 2
 
 func boostSanVel(): #feito
 	var text = floating_text.instance()

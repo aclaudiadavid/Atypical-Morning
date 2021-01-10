@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixil-frame-0.png" type="Texture" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Assets/slash-0.png" type="Texture" id=12]
 [ext_resource path="res://Assets/slash-1.png" type="Texture" id=13]
 [ext_resource path="res://Assets/jump-slash-0.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Audio/Concrete_Shoes_Running.ogg" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,6 +27,11 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "jumpSlash",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "jump",
@@ -36,11 +40,6 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Slash",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "jumpSlash",
 "speed": 10.0
 } ]
 
@@ -193,11 +192,6 @@ position = Vector2( 17.097, 0 )
 position = Vector2( 42.32, 0 )
 shape = SubResource( 7 )
 disabled = true
-
-[node name="PlayerWalkSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 15 )
-volume_db = 4.561
-bus = "Walking"
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="death" to="." method="_on_death_timeout"]
 [connection signal="timeout" from="invulnerabilityTimer" to="." method="_on_invulnerabilityTimer_timeout"]
