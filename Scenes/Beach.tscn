@@ -192,3 +192,15 @@ position = Vector2( 1842.7, 541.938 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1762.45
+margin_top = 503.301
+margin_right = 1924.45
+margin_bottom = 517.301
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "[Left click] to use weapon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
