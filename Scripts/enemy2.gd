@@ -68,5 +68,4 @@ func _on_Timer_timeout():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Sword"):
-		print(get_parent().get_node("Character").health)
-		damage(2)
+		damage(PlayerVars.sword_damage)
