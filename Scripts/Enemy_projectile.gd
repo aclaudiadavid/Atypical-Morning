@@ -20,6 +20,7 @@ func flip(direction):
 		$Sprite.flip_v = true
 
 func _on_Snot_body_entered(body):
-	emit_signal("hit",1)
+	if body.get_name() == "Character":
+		emit_signal("hit",1)
 	queue_free()
 
