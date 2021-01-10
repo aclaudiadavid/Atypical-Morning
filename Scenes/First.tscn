@@ -409,7 +409,7 @@ position = Vector2( -104.838, 272.637 )
 [node name="Camera2D" type="Camera2D" parent="Character"]
 current = true
 limit_left = -224
-limit_top = -490
+limit_top = -477
 limit_right = 2817
 limit_bottom = 542
 limit_smoothed = true
