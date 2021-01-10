@@ -190,3 +190,14 @@ shape = SubResource( 5 )
 stream = ExtResource( 10 )
 volume_db = -3.0
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2029.59
+margin_top = 50.9782
+margin_right = 2191.59
+margin_bottom = 66.9782
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "[Left click] to use weapon"
+__meta__ = {
+"_edit_use_anchors_": false
+}
