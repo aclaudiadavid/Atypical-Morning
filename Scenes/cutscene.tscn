@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/cutscene/cutscene.ogv" type="VideoStream" id=1]
+[ext_resource path="res://Scenes/VideoPlayer.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -615.0
+margin_top = -507.0
+margin_right = 1808.0
+margin_bottom = 1314.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 642.022, 444.154 )
+current = true
+zoom = Vector2( 1.24, 1.2 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_left = 2.24487
+margin_top = 83.0622
+margin_right = 1282.24
+margin_bottom = 803.062
+stream = ExtResource( 1 )
+autoplay = true
+expand = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="finished" from="VideoPlayer" to="VideoPlayer" method="_on_VideoPlayer_finished"]
