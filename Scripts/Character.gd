@@ -280,7 +280,6 @@ func pick_san(): #feito
 func pick_boom(): #feito
 	PlayerVars.boomerangON = true
 	PlayerVars.max_boom = 1
-	PlayerVars.boomerangON = false
 	PlayerVars.boom_distance = 1
 	PlayerVars.boom_vel = 1
 
