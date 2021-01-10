@@ -41,6 +41,10 @@ func check_if_better(time):
 func _ready():
 	if not savegame.file_exists(save_path):
 		create_save()
+		
+	if (check_if_better(time)):
+		save()
+		get_tree().getNode("HighScore").Visible()
 
 func save():
 	savegame.open(save_path, File.WRITE) #open file to write

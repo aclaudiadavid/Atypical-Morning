@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/more fonts/KiriFont.ttf" type="DynamicFontData" id=2]
@@ -23,6 +23,10 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
@@ -35,9 +39,9 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 1.0
-margin_top = 1.0
+margin_top = 1.94386
 margin_right = 2088.0
-margin_bottom = 1130.0
+margin_bottom = 1130.94
 color = Color( 0.682353, 0.905882, 0.937255, 1 )
 
 [node name="Label" type="Label" parent="."]
@@ -94,6 +98,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HighScore" type="Label" parent="."]
+visible = false
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 1139.77
+margin_top = 417.84
+margin_right = 1267.77
+margin_bottom = 443.84
+custom_fonts/font = SubResource( 5 )
+text = "New high score!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label4" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
@@ -114,7 +131,7 @@ margin_left = 912.248
 margin_top = 486.923
 margin_right = 1143.75
 margin_bottom = 706.923
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Thank you for playing our game.
 
