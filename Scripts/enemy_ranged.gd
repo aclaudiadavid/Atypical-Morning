@@ -7,11 +7,13 @@ const SPEED = 100
 const UP = Vector2(0,-1)
 
 export var stomp_impulse := 600.0
+export (int) var hp = 1
 
 var velocity = Vector2()
 var direction = 1 #to the right
 var is_dead = false
 var limit = false
+var floating_text = preload("res://Scenes/FloatingText.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +27,16 @@ func dead():
 #	$CollisionShape2D.disabled = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Timer.start()
+
+func damage(dmg):
+	hp -= dmg
+	var text = floating_text.instance()
+	text.amount = dmg
+	text.type = "Damage"
+	add_child(text)
+	if hp <= 0:
+		dead()
+
 
 func _physics_process(delta):
 	if is_dead == false:
@@ -74,3 +86,9 @@ func _on_Timer_timeout():
 
 func _on_Limiter_timeout():
 	limit = false
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Sword"):
+		print(get_parent().get_node("Character").health)
+		damage(2)
