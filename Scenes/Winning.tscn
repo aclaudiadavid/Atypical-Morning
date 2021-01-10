@@ -101,10 +101,10 @@ __meta__ = {
 [node name="HighScore" type="Label" parent="."]
 visible = false
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 1139.77
-margin_top = 417.84
-margin_right = 1267.77
-margin_bottom = 443.84
+margin_left = 1138.83
+margin_top = 416.896
+margin_right = 1266.83
+margin_bottom = 442.896
 custom_fonts/font = SubResource( 5 )
 text = "New high score!!"
 __meta__ = {
