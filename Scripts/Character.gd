@@ -8,7 +8,6 @@ signal killed()
 
 const UP = Vector2(0,-1)
 const GRAVITY = 10.5
-const SPEED = 300
 const JUMP = 500
 const SANITAZER = preload("res://Scenes/Sanitizer.tscn")
 const BOOMERANG = preload("res://Scenes/boomerang.tscn")
@@ -22,6 +21,7 @@ var time_mult = 1
 var paused = false
 var canThrow = true
 var cd = 0.0
+var slowed_down = false
 
 #sanitizer
 #var sanitizerON = false
@@ -61,14 +61,14 @@ func _physics_process(delta):
 	
 	if is_dead == false:
 		if Input.is_action_pressed("ui_right") and isAttacking == false:
-			motion.x = SPEED
+			motion.x = Global.speed
 			$AnimatedSprite.play("walk")
 			$AnimatedSprite.flip_h = false
 			if sign($Position2D.position.x) == -1:
 				$Position2D.position.x *= -1
 				$AttackArea/CollisionShape2D.position.x = $AttackArea/CollisionShape2D.position.x * -1
 		elif Input.is_action_pressed("ui_left") and isAttacking == false:
-			motion.x = -SPEED
+			motion.x = -Global.speed
 			$AnimatedSprite.play("walk")
 			$AnimatedSprite.flip_h = true
 			if sign($Position2D.position.x) == 1:
@@ -164,11 +164,14 @@ func _physics_process(delta):
 		
 		if not medicine_taken && Global.shield == 0:
 			dmg_time += delta;
+			if Global.s_level > 0 and !slowed_down:
+				Global.speed *= 0.7
+				slowed_down = true
 		
 		if !canThrow:
 			cd += delta
 		
-		if cd >= 1.0:
+		if cd >= PlayerVars.cd_lim:
 			cd = 0.0
 			canThrow = true
 		
@@ -210,6 +213,7 @@ func damage(amount):
 			effects_animation.play("damageS")
 		else:
 			medicine_taken = false
+			Global.s_level += 1
 			set_health(Global.health - amount)
 			var text = floating_text.instance()
 			text.amount = amount
@@ -230,6 +234,7 @@ func HPBarUpdate():
 func ShieldBarUpdate():
 	if Global.shield > 0:
 		hpbar.hide()
+		shieldbar.show()
 	shieldbar.get_node("Tween").interpolate_property(shieldbar, "value", shieldbar.value, Global.shield, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	shieldbar.get_node("Tween").start()
 	shieldbar.value = Global.shield
@@ -262,7 +267,14 @@ func _on_Pill_collect():
 	set_health(Global.health + 5)
 	HPBarUpdate()
 	medicine_taken = true
+	if Global.s_level > 0:
+		Global.speed = 300
+		slowed_down = false
+	Global.s_level = 0
 
+func collect_mask():
+	set_shield(Global.shield + 5)
+	ShieldBarUpdate()
 
 func _on_death_timeout():
 	self.queue_free()
@@ -276,18 +288,17 @@ func _on_AnimatedSprite_animation_finished():
 		isAttacking = false
 
 func double_boom(): #feito
-	if PlayerVars.boomerangON:
-		var text = floating_text.instance()
-		text.desc = "+1 BOOMERANG"
-		text.type = "Item"
-		add_child(text)
-		PlayerVars.max_boom += 1
+	var text = floating_text.instance()
+	text.desc = "DOUBLE BOOMERANG"
+	text.type = "Item"
+	add_child(text)
+	PlayerVars.max_boom += 1
 
 func pick_san(): #feito
 	PlayerVars.sanitizerON = true
 	PlayerVars.san_vel = 1
 	PlayerVars.san_damage = 1
-	PlayerVars.san_count = 1
+	PlayerVars.cd_lim = 1.0
 
 func pick_boom(): #feito
 	PlayerVars.boomerangON = true
@@ -300,50 +311,30 @@ func pick_sword(): #feito
 	PlayerVars.sword_range = 1
 	PlayerVars.sword_damage = 2
 
-func boostSanVel(): #feito
-	if PlayerVars.sanitizerON:
-		var text = floating_text.instance()
-		text.desc = "+GEL SPEED"
-		text.type = "Item"
-		add_child(text)
-		PlayerVars.san_vel += 0.2
+func cutCD(): #feito
+	var text = floating_text.instance()
+	text.desc = "GEL SPEED UP"
+	text.type = "Item"
+	add_child(text)
+	PlayerVars.cd_lim = 0.5
 
 func boostSanDamage(): #feito
-	if PlayerVars.sanitizerON:
-		var text = floating_text.instance()
-		text.desc = "+GEL DMG"
-		text.type = "Item"
-		add_child(text)
-		PlayerVars.san_damage += 1
-
-func boostBoomVel(): #feito
-	if PlayerVars.boomerangON:
-		var text = floating_text.instance()
-		text.desc = "+BOOM SPEED"
-		text.type = "Item"
-		add_child(text)
-		PlayerVars.boom_vel += 0.2
+	var text = floating_text.instance()
+	text.desc = "GEL DMG UP"
+	text.type = "Item"
+	add_child(text)
+	PlayerVars.san_damage += 1
 
 func boostBoomDist(): #feito
-	if PlayerVars.boomerangON:
-		var text = floating_text.instance()
-		text.desc = "+BOOM REACH"
-		text.type = "Item"
-		add_child(text)
-		PlayerVars.boom_distance += 0.2
-
-func boostSwordDist(): #feito
-	if PlayerVars.swordON:	
-		var text = floating_text.instance()
-		text.desc = "+SWORD RANGE"
-		text.type = "Item"
-		add_child(text)
-		PlayerVars.sword_range += 0.2
+	var text = floating_text.instance()
+	text.desc = "+BOOM REACH UP"
+	text.type = "Item"
+	add_child(text)
+	PlayerVars.boom_distance += 0.2
 
 func boostSwordDamage(): #feito
-	if PlayerVars.swordON:	
-		var text = floating_text.instance()
-		text.desc = "+SWORD DMG"
-		text.type = "Item"
-		add_child(text)
-		PlayerVars.sword_damage += 2
+	var text = floating_text.instance()
+	text.desc = "SWORD DMG UP"
+	text.type = "Item"
+	add_child(text)
+	PlayerVars.sword_damage += 1

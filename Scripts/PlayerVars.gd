@@ -4,7 +4,7 @@ extends Node
 var sanitizerON = false
 var san_vel = 1
 var san_damage = 1
-var san_count = 1
+var cd_lim = 1.0
 
 #sword
 var swordON = false

@@ -9,6 +9,8 @@ var max_health = 10
 var max_shield = 5
 var health = max_health
 var shield = max_shield
+var s_level = 0
+var speed = 300
 
 #Weapons
 var sanitizerON = false

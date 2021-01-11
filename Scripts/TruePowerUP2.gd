@@ -8,9 +8,9 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if "Character" in body.name:
 		if PlayerVars.boomerangON:
-			body.double_boom()
+			body.boostBoomDist()
 		if PlayerVars.sanitizerON:
-			body.boostSanDamage()
+			body.cutCD()
 		if PlayerVars.swordON:
 			body.boostSwordDamage()
 		queue_free()

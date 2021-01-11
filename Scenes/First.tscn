@@ -416,7 +416,7 @@ limit_smoothed = true
 editor_draw_limits = true
 
 [node name="Pill" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2242.42, 387.185 )
+position = Vector2( 2237.64, 383.353 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 14 )
