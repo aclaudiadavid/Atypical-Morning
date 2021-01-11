@@ -276,11 +276,12 @@ func _on_AnimatedSprite_animation_finished():
 		isAttacking = false
 
 func double_boom(): #feito
-	var text = floating_text.instance()
-	text.desc = "+1 BOOMERANG"
-	text.type = "Item"
-	add_child(text)
-	PlayerVars.max_boom += 1
+	if PlayerVars.boomerangON:
+		var text = floating_text.instance()
+		text.desc = "+1 BOOMERANG"
+		text.type = "Item"
+		add_child(text)
+		PlayerVars.max_boom += 1
 
 func pick_san(): #feito
 	PlayerVars.sanitizerON = true
@@ -300,43 +301,49 @@ func pick_sword(): #feito
 	PlayerVars.sword_damage = 2
 
 func boostSanVel(): #feito
-	var text = floating_text.instance()
-	text.desc = "+GEL SPEED"
-	text.type = "Item"
-	add_child(text)
-	PlayerVars.san_vel += 0.2
+	if PlayerVars.sanitizerON:
+		var text = floating_text.instance()
+		text.desc = "+GEL SPEED"
+		text.type = "Item"
+		add_child(text)
+		PlayerVars.san_vel += 0.2
 
 func boostSanDamage(): #feito
-	var text = floating_text.instance()
-	text.desc = "+GEL DMG"
-	text.type = "Item"
-	add_child(text)
-	PlayerVars.san_damage += 1
+	if PlayerVars.sanitizerON:
+		var text = floating_text.instance()
+		text.desc = "+GEL DMG"
+		text.type = "Item"
+		add_child(text)
+		PlayerVars.san_damage += 1
 
 func boostBoomVel(): #feito
-	var text = floating_text.instance()
-	text.desc = "+BOOM SPEED"
-	text.type = "Item"
-	add_child(text)
-	PlayerVars.boom_vel += 0.2
+	if PlayerVars.boomerangON:
+		var text = floating_text.instance()
+		text.desc = "+BOOM SPEED"
+		text.type = "Item"
+		add_child(text)
+		PlayerVars.boom_vel += 0.2
 
 func boostBoomDist(): #feito
-	var text = floating_text.instance()
-	text.desc = "+BOOM REACH"
-	text.type = "Item"
-	add_child(text)
-	PlayerVars.boom_distance += 0.2
+	if PlayerVars.boomerangON:
+		var text = floating_text.instance()
+		text.desc = "+BOOM REACH"
+		text.type = "Item"
+		add_child(text)
+		PlayerVars.boom_distance += 0.2
 
 func boostSwordDist(): #feito
-	var text = floating_text.instance()
-	text.desc = "+SWORD RANGE"
-	text.type = "Item"
-	add_child(text)
-	PlayerVars.sword_range += 0.2
+	if PlayerVars.swordON:	
+		var text = floating_text.instance()
+		text.desc = "+SWORD RANGE"
+		text.type = "Item"
+		add_child(text)
+		PlayerVars.sword_range += 0.2
 
 func boostSwordDamage(): #feito
-	var text = floating_text.instance()
-	text.desc = "+SWORD DMG"
-	text.type = "Item"
-	add_child(text)
-	PlayerVars.sword_damage += 2
+	if PlayerVars.swordON:	
+		var text = floating_text.instance()
+		text.desc = "+SWORD DMG"
+		text.type = "Item"
+		add_child(text)
+		PlayerVars.sword_damage += 2
