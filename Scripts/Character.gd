@@ -199,6 +199,7 @@ func damage(amount):
 			ShieldBarUpdate()
 			effects_animation.play("damageS")
 		else:
+			medicine_taken = false
 			set_health(Global.health - amount)
 			var text = floating_text.instance()
 			text.amount = amount
