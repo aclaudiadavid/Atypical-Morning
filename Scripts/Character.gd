@@ -20,6 +20,8 @@ var medicine_taken = false
 var dmg_time = 0.0
 var time_mult = 1
 var paused = false
+var canThrow = true
+var cd = 0.0
 
 #sanitizer
 #var sanitizerON = false
@@ -90,7 +92,7 @@ func _physics_process(delta):
 				motion.y = -JUMP
 		
 		if Input.is_action_just_pressed("Attack"):
-			if PlayerVars.sanitizerON:	
+			if PlayerVars.sanitizerON and canThrow:	
 				var sanitizer = SANITAZER.instance()
 				sanitizer.damage = PlayerVars.san_damage
 				sanitizer.speed = sanitizer.speed * PlayerVars.san_vel
@@ -100,6 +102,7 @@ func _physics_process(delta):
 					sanitizer.set_p_direction(-1)
 				get_parent().add_child(sanitizer)
 				sanitizer.position = $Position2D.global_position
+				canThrow = false
 			elif PlayerVars.boomerangON and boomerang_count < PlayerVars.max_boom:
 				var boomerang = BOOMERANG.instance()
 				boomerang.max_dist *= PlayerVars.boom_distance
@@ -161,6 +164,13 @@ func _physics_process(delta):
 		
 		if not medicine_taken && Global.shield == 0:
 			dmg_time += delta;
+		
+		if !canThrow:
+			cd += delta
+		
+		if cd >= 1.0:
+			cd = 0.0
+			canThrow = true
 		
 		if dmg_time >= 3.0:
 			dmg_time = 0.0
