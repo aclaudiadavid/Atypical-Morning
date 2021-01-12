@@ -39,7 +39,7 @@ func damage(dmg):
 		dead()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_dead == false:
 		if direction == 1:
 			$Aim.set_rotation(0)
