@@ -337,7 +337,7 @@ func boostBoomDist(): #feito
 
 func boostSwordDamage(): #feito
 	var text = floating_text.instance()
-	text.desc = "SWORD DMG UP"
+	text.desc = "SWAB DMG UP"
 	text.type = "Item"
 	add_child(text)
 	PlayerVars.sword_damage += 1

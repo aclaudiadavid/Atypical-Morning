@@ -407,6 +407,7 @@ offset = Vector2( 894.689, 76.0299 )
 position = Vector2( -104.838, 272.637 )
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
+scale = Vector2( 1.2, 1.2 )
 current = true
 limit_left = -224
 limit_top = -477
