@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=1]
 [ext_resource path="res://Assets/more fonts/KiriFont.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
 [ext_resource path="res://Assets/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Audio/Game Over.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -72,5 +73,10 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+autoplay = true
 [connection signal="pressed" from="RetryButton" to="RetryButton" method="_on_RetryButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]
