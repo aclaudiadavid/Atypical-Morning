@@ -35,8 +35,8 @@ func check_if_better(time):
 			if x == 1:
 				new = true
 			
-			for y in range(x, save_data.size()-2):
-				save_data[y+1] = save_data[y]
+			for y in range(save_data.size()-1, x-1):
+				save_data[y] = save_data[y-1]
 			save_data[x] = time
 			
 			save()
