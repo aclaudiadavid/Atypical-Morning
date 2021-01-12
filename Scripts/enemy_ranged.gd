@@ -68,10 +68,12 @@ func _physics_process(delta):
 				$Aim/Limiter.start()
 				limit = true
 				var shot = SHOT.instance()
+				$sneeze.play()
 				shot.global_position = self.position + Vector2(50, 0) * direction
 				shot.speed_x = shot.speed_x * direction
 				shot.flip(direction)
 				get_parent().add_child(shot)
+				$sneeze.stop()
 		
 		if get_slide_count() > 0:
 			for i in range(get_slide_count()):

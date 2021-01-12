@@ -78,7 +78,7 @@ margin_top = 696.923
 margin_right = 1293.25
 margin_bottom = 766.923
 custom_fonts/font = SubResource( 3 )
-text = "Time to go"
+text = "Exit game"
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
