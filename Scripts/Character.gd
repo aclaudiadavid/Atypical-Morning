@@ -96,6 +96,7 @@ func _physics_process(delta):
 				var sanitizer = SANITAZER.instance()
 				sanitizer.damage = PlayerVars.san_damage
 				sanitizer.speed = sanitizer.speed * PlayerVars.san_vel
+				$AlcoolGelAudio.play()
 				if sign($Position2D.position.x) == 1:
 					sanitizer.set_p_direction(1)
 				else:
@@ -107,6 +108,7 @@ func _physics_process(delta):
 				var boomerang = BOOMERANG.instance()
 				boomerang.max_dist *= PlayerVars.boom_distance
 				boomerang.vel *= PlayerVars.boom_vel
+				$BoomerangAudio.play()
 				if sign($Position2D.position.x) == 1:
 					boomerang.set_p_direction(Vector2(1, 0))
 				else:
@@ -117,6 +119,7 @@ func _physics_process(delta):
 				boomerang_count += 1
 			
 			elif PlayerVars.swordON:
+				$SwordAudio.play()
 				if not is_on_floor():
 					$AnimatedSprite.play("jumpSlash")
 				else:
