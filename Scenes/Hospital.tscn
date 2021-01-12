@@ -71,6 +71,7 @@ shape = SubResource( 1 )
 [node name="enemy2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 270, 276 )
 scale = Vector2( 0.5, 0.5 )
+hp = 2
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 92.0724, 216.545 )
@@ -190,20 +191,25 @@ shape = SubResource( 6 )
 [node name="enemy3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1018.07, 275.314 )
 scale = Vector2( 0.5, 0.5 )
+hp = 2
 
 [node name="enemy4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1209.14, 276.257 )
 scale = Vector2( 0.5, 0.5 )
+hp = 2
 
 [node name="enemy5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 500.963, 276 )
 scale = Vector2( 0.5, 0.5 )
+hp = 2
 
 [node name="enemy_ranged" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2522.21, 276.319 )
+hp = 3
 
 [node name="enemy_ranged2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 702.056, 130.113 )
+hp = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )

@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name ChildEnemy
 
 const GRAVITY = 10
-const SPEED = 150
+const SPEED = 200
 const UP = Vector2(0,-1)
 
 export var stomp_impulse := 600.0

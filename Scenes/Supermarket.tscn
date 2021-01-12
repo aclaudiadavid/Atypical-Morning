@@ -170,14 +170,17 @@ texture = ExtResource( 6 )
 [node name="enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 787.209, 533.411 )
 scale = Vector2( 0.5, 0.5 )
+hp = 3
 
 [node name="enemy4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1708.84, 533.411 )
 scale = Vector2( 0.5, 0.5 )
+hp = 3
 
 [node name="enemy3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 331.844, 533.278 )
 scale = Vector2( 0.5, 0.5 )
+hp = 3
 
 [node name="cart" type="StaticBody2D" parent="."]
 position = Vector2( 841.446, 553.733 )
@@ -227,9 +230,11 @@ shape = SubResource( 4 )
 
 [node name="enemy_ranged" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1277.56, 532.081 )
+hp = 4
 
 [node name="enemy_ranged2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2038.32, 341.419 )
+hp = 4
 
 [node name="boxes" type="StaticBody2D" parent="."]
 position = Vector2( 1919.01, 543.402 )

@@ -182,10 +182,12 @@ position = Vector2( 1872.27, 615.112 )
 [node name="enemy3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 276.97, 596.509 )
 scale = Vector2( 0.5, 0.5 )
+hp = 2
 
 [node name="enemy4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3028.4, 598.628 )
 scale = Vector2( 0.5, 0.5 )
+hp = 2
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2( 1254.88, 622.401 )

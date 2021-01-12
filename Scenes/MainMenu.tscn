@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/more fonts/KiriFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Audio/main menu.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Assets/trophy.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/HighScoreButton.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 76
@@ -20,12 +19,6 @@ font_data = ExtResource( 3 )
 [sub_resource type="DynamicFont" id=3]
 size = 27
 font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.211765, 0.211765, 0.211765, 0.956863 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.585
@@ -99,35 +92,8 @@ margin_top = 527.83
 margin_right = 725.728
 margin_bottom = 597.83
 icon = ExtResource( 6 )
-script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Label" type="Label" parent="HighScoreButton"]
-visible = false
-margin_left = -7.0
-margin_top = -181.0
-margin_right = 416.0
-margin_bottom = 93.0
-custom_styles/normal = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="HighScoreButton/Label"]
-margin_left = 402.59
-margin_top = 1.11011
-margin_right = 422.59
-margin_bottom = 21.1101
-custom_styles/normal = SubResource( 5 )
-custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "X"
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="HighScoreButton" to="HighScoreButton" method="_on_HighScoreButton_pressed"]
-[connection signal="ready" from="HighScoreButton/Label" to="HighScoreButton" method="_on_Label_ready"]
-[connection signal="pressed" from="HighScoreButton/Label/Button" to="HighScoreButton" method="_on_Button_pressed"]
