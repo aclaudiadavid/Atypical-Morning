@@ -3,7 +3,7 @@ extends Label
 func _ready():
 	var data = Global.read_savegame()
 	
-	var text
+	var text = ""
 	
 	if data.get(1) < 9999:
 		var minutes1 = int(data.get(1)) / 60

@@ -95,7 +95,7 @@ limit_bottom = -130
 editor_draw_limits = true
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
-position = Vector2( 64.1939, 436.549 )
+position = Vector2( 85.5207, 470.223 )
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 current = true

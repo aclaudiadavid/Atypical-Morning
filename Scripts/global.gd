@@ -29,13 +29,15 @@ func create_save():
 
 func check_if_better(time):
 	var new = false
+	save_data = read_savegame()
 	for x in save_data:
 		if time < save_data[x]:
 			if x == 1:
 				new = true
-			
-			for y in range(5, x-1):
+			var y = 5
+			while x < y:
 				save_data[y] = save_data[y-1]
+				y -= 1
 			save_data[x] = time
 			
 			save()
