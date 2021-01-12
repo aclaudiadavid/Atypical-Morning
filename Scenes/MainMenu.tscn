@@ -128,36 +128,26 @@ custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "X"
 
+[node name="title" type="Label" parent="HighScoreButton/Label"]
+margin_left = 143.631
+margin_top = 18.8988
+margin_right = 248.631
+margin_bottom = 32.8988
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Your high scores"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="HighScoreButton/Label"]
-margin_left = 176.389
-margin_top = 30.2381
-margin_right = 216.389
-margin_bottom = 44.2381
+margin_left = 178.458
+margin_top = 56.0
+margin_right = 230.458
+margin_bottom = 70.0
 script = ExtResource( 8 )
-
-[node name="Label2" type="Label" parent="HighScoreButton/Label"]
-margin_left = 153.71
-margin_top = 69.2956
-margin_right = 193.71
-margin_bottom = 83.2956
-
-[node name="Label3" type="Label" parent="HighScoreButton/Label"]
-margin_left = 165.05
-margin_top = 113.393
-margin_right = 205.05
-margin_bottom = 127.393
-
-[node name="Label4" type="Label" parent="HighScoreButton/Label"]
-margin_left = 155.841
-margin_top = 182.631
-margin_right = 252.841
-margin_bottom = 209.631
-
-[node name="Label5" type="Label" parent="HighScoreButton/Label"]
-margin_left = 174.22
-margin_top = 226.53
-margin_right = 230.22
-margin_bottom = 244.53
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="HighScoreButton" to="HighScoreButton" method="_on_HighScoreButton_pressed"]

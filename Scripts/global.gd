@@ -29,8 +29,9 @@ func create_save():
 
 func check_if_better(time):
 	var new = false
-	
+	print(time)
 	for x in save_data:
+		print(save_data[x])
 		if time < save_data[x]:
 			if x == 1:
 				new = true
