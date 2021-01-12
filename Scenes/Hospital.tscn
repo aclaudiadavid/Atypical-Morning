@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/hospital.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/hospitalBackground.jpg" type="Texture" id=9]
 [ext_resource path="res://Scenes/enemy_ranged.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Audio/Hospital.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/TruePowerUP.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25.5342, 8.56528 )
@@ -208,3 +209,7 @@ position = Vector2( 702.056, 130.113 )
 stream = ExtResource( 11 )
 volume_db = -5.0
 autoplay = true
+
+[node name="TruePowerUP1" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1338.34, 142.838 )
+scale = Vector2( 0.05, 0.05 )

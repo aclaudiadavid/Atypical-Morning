@@ -168,10 +168,10 @@ position = Vector2( 1412.9, 279.369 )
 position = Vector2( 2384.49, 431.819 )
 
 [node name="KinematicBody2D7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2416.71, 431.819 )
+position = Vector2( 2416.21, 431.819 )
 
 [node name="KinematicBody2D8" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2448.92, 431.819 )
+position = Vector2( 2447.92, 431.819 )
 
 [node name="PickSan" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2110.37, 127.252 )

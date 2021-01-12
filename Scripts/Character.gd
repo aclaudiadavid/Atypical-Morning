@@ -47,8 +47,6 @@ onready var effects_animation = $AnimationPlayer
 onready var hpbar = $HPBar
 onready var shieldbar = $ShieldBar
 
-onready var walk = $PlayerWalkSound
-
 func _ready():
 	ShieldBarUpdate()
 	HPBarUpdate()
