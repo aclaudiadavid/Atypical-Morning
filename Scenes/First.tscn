@@ -384,21 +384,21 @@ extents = Vector2( 26.7559, 10.8858 )
 
 [node name="bg" type="Sprite" parent="."]
 position = Vector2( -1721.04, -238.771 )
-scale = Vector2( 2.23434, 3.32248 )
+scale = Vector2( 2.23434, 3.4 )
 z_index = -1
 texture = ExtResource( 9 )
 offset = Vector2( 894.689, 76.0299 )
 
 [node name="bg2" type="Sprite" parent="."]
 position = Vector2( -534.493, -240.434 )
-scale = Vector2( 2.44009, 3.31145 )
+scale = Vector2( 2.44009, 3.4 )
 z_index = -1
 texture = ExtResource( 9 )
 offset = Vector2( 894.689, 76.0299 )
 
 [node name="bg3" type="Sprite" parent="."]
 position = Vector2( 1065.35, -238.514 )
-scale = Vector2( 2.16166, 3.30594 )
+scale = Vector2( 2.16166, 3.4 )
 z_index = -1
 texture = ExtResource( 9 )
 offset = Vector2( 894.689, 76.0299 )

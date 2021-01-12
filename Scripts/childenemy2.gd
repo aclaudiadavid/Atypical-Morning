@@ -36,7 +36,7 @@ func damage(dmg):
 	if hp <= 0:
 		dead()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_dead == false:
 		velocity.x = SPEED * direction
 		$AnimatedSprite.play("walk")
