@@ -200,10 +200,12 @@ func infection(amount):
 			add_child(text)
 			HPBarUpdate()
 			effects_animation.play("damage")
+			$HurtAudio.play()
 
 
 
 func damage(amount):
+	$HurtAudio.play()
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
 		if Global.shield > 0:
