@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/more fonts/KiriFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
 [ext_resource path="res://Assets/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Audio/main menu.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/trophy.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 76
@@ -84,5 +85,15 @@ current = true
 stream = ExtResource( 5 )
 volume_db = -5.0
 autoplay = true
+
+[node name="HighScoreButton" type="Button" parent="."]
+margin_left = 649.728
+margin_top = 527.83
+margin_right = 725.728
+margin_bottom = 597.83
+icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]
