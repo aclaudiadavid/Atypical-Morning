@@ -7,6 +7,6 @@ func _ready():
 	if new:
 		get_node("../HighScore").set_visible(true)
 	
-	var minutes = stepify(Global.time / 60, 1)
+	var minutes = int(Global.time) / 60
 	var seconds = stepify(fmod(Global.time, 60.0), 1)
 	self.text = String(minutes) + ":" + String(seconds)

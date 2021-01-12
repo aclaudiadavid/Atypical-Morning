@@ -29,14 +29,12 @@ func create_save():
 
 func check_if_better(time):
 	var new = false
-	print(time)
 	for x in save_data:
-		print(save_data[x])
 		if time < save_data[x]:
 			if x == 1:
 				new = true
 			
-			for y in range(save_data.size()-1, x-1):
+			for y in range(5, x-1):
 				save_data[y] = save_data[y-1]
 			save_data[x] = time
 			
