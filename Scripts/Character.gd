@@ -21,7 +21,6 @@ var time_mult = 1
 var paused = false
 var canThrow = true
 var cd = 0.0
-var slowed_down = false
 
 #sanitizer
 #var sanitizerON = false
@@ -56,7 +55,9 @@ func _ready():
 func _physics_process(delta):
 	if not paused:
 		Global.time += delta * time_mult
-	
+	if Global.time < 0.1 and Global.slowed_down:
+		Global.slowed_down = false
+		Global.speed = Global.max_speed
 	if is_dead == false:
 		if Input.is_action_pressed("ui_right") and isAttacking == false:
 			motion.x = Global.speed
@@ -165,9 +166,9 @@ func _physics_process(delta):
 		
 		if not medicine_taken && Global.shield == 0:
 			dmg_time += delta;
-			if Global.s_level > 0 and !slowed_down:
+			if Global.s_level > 0 and !Global.slowed_down:
 				Global.speed *= 0.7
-				slowed_down = true
+				Global.slowed_down = true
 		
 		if !canThrow:
 			cd += delta
@@ -272,7 +273,7 @@ func _on_Pill_collect():
 	medicine_taken = true
 	if Global.s_level > 0:
 		Global.speed = 300
-		slowed_down = false
+		Global.slowed_down = false
 	Global.s_level = 0
 
 func collect_mask():

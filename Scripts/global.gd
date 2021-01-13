@@ -7,10 +7,12 @@ var lastScene = "First"
 #health
 var max_health = 10
 var max_shield = 5
+var max_speed = 290
 var health = max_health
 var shield = max_shield
 var s_level = 0
-var speed = 290
+var speed = max_speed
+var slowed_down = false
 
 #Weapons
 var sanitizerON = false
