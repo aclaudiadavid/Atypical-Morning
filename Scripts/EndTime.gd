@@ -9,4 +9,7 @@ func _ready():
 	
 	var minutes = int(Global.time) / 60
 	var seconds = stepify(fmod(Global.time, 60.0), 1)
-	self.text = String(minutes) + ":" + String(seconds)
+	if seconds < 10:
+			self.text = String(minutes) + ":0" + String(seconds)
+	else:
+			self.text = String(minutes) + ":" + String(seconds)
