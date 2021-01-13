@@ -54,8 +54,8 @@ extents = Vector2( 31.7194, 34.7444 )
 [node name="Node2D" type="Node2D"]
 
 [node name="bg" type="Sprite" parent="."]
-position = Vector2( 1201.26, 2.10223 )
-scale = Vector2( 0.5, 0.3 )
+position = Vector2( 1435.07, 35.9279 )
+scale = Vector2( 0.5, 0.270558 )
 texture = ExtResource( 9 )
 
 [node name="End" type="StaticBody2D" parent="."]
@@ -194,7 +194,7 @@ scale = Vector2( 0.5, 0.5 )
 hp = 2
 
 [node name="enemy4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1209.14, 276.257 )
+position = Vector2( 1481.9, 247.073 )
 scale = Vector2( 0.5, 0.5 )
 hp = 2
 
@@ -205,6 +205,14 @@ hp = 2
 
 [node name="enemy_ranged" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2522.21, 276.319 )
+hp = 3
+
+[node name="enemy_ranged4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1584.95, 276.319 )
+hp = 3
+
+[node name="enemy_ranged3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1668.02, 162.95 )
 hp = 3
 
 [node name="enemy_ranged2" parent="." instance=ExtResource( 10 )]

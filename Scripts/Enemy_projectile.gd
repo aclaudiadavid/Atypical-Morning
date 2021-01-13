@@ -1,7 +1,7 @@
 extends RigidBody2D
 signal hit(dmg)
 
-const SNOT_SPEED = 300
+const SNOT_SPEED = 330
 
 var speed_x = 1
 var speed_y = 0
