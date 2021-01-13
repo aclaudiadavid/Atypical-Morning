@@ -167,6 +167,10 @@ func _physics_process(delta):
 		if not medicine_taken && Global.shield == 0:
 			dmg_time += delta;
 			if Global.s_level > 0 and !Global.slowed_down:
+				var text = floating_text.instance()
+				text.desc = "SLOWED"
+				text.type = "Slowed"
+				add_child(text)
 				Global.speed *= 0.7
 				Global.slowed_down = true
 		
