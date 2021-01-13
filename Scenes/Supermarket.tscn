@@ -80,7 +80,7 @@ scale = Vector2( 0.231241, 0.246147 )
 texture = ExtResource( 13 )
 
 [node name="Pill" parent="." instance=ExtResource( 10 )]
-position = Vector2( 995.674, 423.696 )
+position = Vector2( 1478.94, 279.59 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
