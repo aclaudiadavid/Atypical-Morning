@@ -17,7 +17,6 @@
 [ext_resource path="res://Scenes/TruePowerUP2.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/enemy_boss.tscn" type="PackedScene" id=16]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
@@ -184,7 +183,7 @@ position = Vector2( 331.844, 533.278 )
 scale = Vector2( 0.5, 0.5 )
 hp = 3
 
-[node name="Boss" parent="." instance=ExtResource( 16 )]
+[node name="enemy_boss" parent="." instance=ExtResource( 16 )]
 position = Vector2( 261.013, -328.676 )
 scale = Vector2( 2, 2 )
 
