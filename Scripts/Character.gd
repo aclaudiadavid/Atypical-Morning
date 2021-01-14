@@ -153,6 +153,8 @@ func _physics_process(delta):
 				(collider as EnemyRanged).dead()
 			elif "enemy2" in get_slide_collision(i).collider.name:
 				damage(1)
+			elif "Boss" in get_slide_collision(i).collider.name:
+				damage(2)
 			elif "FEnd" in get_slide_collision(i).collider.name:
 				paused = true
 				get_tree().change_scene("res://Scenes/Winning.tscn")

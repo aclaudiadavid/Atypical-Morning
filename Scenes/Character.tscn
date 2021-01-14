@@ -31,6 +31,11 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "jumpSlash",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "jump",
@@ -39,11 +44,6 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Slash",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "jumpSlash",
 "speed": 10.0
 } ]
 
